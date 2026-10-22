@@ -1,0 +1,97 @@
+.site-layout:has(.about-page) {
+  background: #fff7f5 url('/images/sky.png') center top / cover no-repeat;
+}
+
+.site-layout:has(.about-page) > .site-main {
+  padding: 0;
+}
+
+.about-page {
+  container-type: inline-size;
+  padding-bottom: 0.694444vw;
+}
+
+.about-page__title {
+  height: 16.458333cqw;
+}
+
+.about-page__title svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.about-page__accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.about-page__panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.638889cqw;
+  margin: 0 3.333333cqw;
+}
+
+.about-page__panel {
+  position: relative;
+  min-height: 30.972222cqw;
+  padding: 1.388889cqw 2.986111cqw 2.222222cqw;
+  border-radius: 2.222222cqw;
+  background: #fff2ccbf;
+  color: #111;
+  font-size: 1.388889cqw;
+  line-height: 2;
+}
+
+.about-page__panel h2 {
+  margin: 0 0 1.388889cqw 2.569444cqw;
+  color: #765b93;
+  font-size: 2.222222cqw;
+  line-height: 1.5;
+}
+
+.about-page__panel p {
+  margin: 0;
+}
+
+.about-page__story p + p {
+  margin-top: 2.777778cqw;
+}
+
+.about-page__how h3 {
+  margin: 0 0 0.555556cqw;
+  font-size: inherit;
+}
+
+.about-page__how > div + div {
+  margin-top: 3.055556cqw;
+}
+
+.about-page__rainbow,
+.about-page__cloud {
+  position: absolute;
+  pointer-events: none;
+}
+
+.about-page__rainbow {
+  width: 13.194444cqw;
+  height: auto;
+  top: 10.763889cqw;
+  right: 3.611111cqw;
+}
+
+.about-page__cloud {
+  width: 15.277778cqw;
+  height: auto;
+  top: 1.736111cqw;
+  right: 1.736111cqw;
+}
+
+.about-page > .joys-footer {
+  margin: 4.375cqw 1.388889cqw 0;
+}

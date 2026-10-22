@@ -1,0 +1,222 @@
+.site-layout:has(.scrapbook-page) {
+  position: relative;
+  padding-top: 0;
+}
+
+.site-layout:has(.scrapbook-page) > .site-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.site-layout:has(.scrapbook-page) > .site-main {
+  padding: 0;
+}
+
+.scrapbook-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 1024;
+  container-type: inline-size;
+  background: url('/images/scrapbook/scrapbook-empty.png') center / contain no-repeat;
+}
+
+.scrapbook-page--empty {
+  background-image: url('/images/scrapbook/scrapbook-bg.png');
+}
+
+.scrapbook-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6.666667cqw;
+  background: url('/images/scrapbook/scrapbook-empty.png') center top / 100% 5120% no-repeat;
+  pointer-events: none;
+}
+
+.scrapbook-page__find {
+  position: absolute;
+  left: 22.847222%;
+  top: 71.777344%;
+  width: 17.638889%;
+  height: 7.03125%;
+  border-radius: 999px;
+}
+
+.scrapbook-page__find:focus-visible {
+  outline: 3px solid #765b93;
+  outline-offset: 4px;
+}
+
+.scrapbook-page__count {
+  position: absolute;
+  top: 26.5%;
+  left: 62.3%;
+  width: 23%;
+  height: 8.2%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 0.208333cqw solid #ed7eb3;
+  border-radius: 8% 2% 6% 3%;
+  background: #fff0f5;
+  color: #765b93;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2.5cqw;
+  text-align: center;
+  transform: rotate(-4deg);
+}
+
+.scrapbook-page__count > span {
+  width: 2.5cqw;
+  color: #ed7eb3;
+  font-size: 1.25cqw;
+}
+
+.scrapbook-page__cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scrapbook-card {
+  position: absolute;
+  top: 44.7%;
+  left: 16.5%;
+  width: 20.3%;
+  box-sizing: border-box;
+  padding: 1.527778cqw 1.25cqw 0.694444cqw;
+  border: 1px solid #ffa3af;
+  border-radius: 1.111111cqw;
+  background: #fff;
+  box-shadow: 0 0.208333cqw 0.555556cqw #765b9310;
+  transform: rotate(-7deg);
+  pointer-events: auto;
+}
+
+.scrapbook-card:nth-child(2) {
+  top: 46.1%;
+  left: 40%;
+  transform: none;
+}
+
+.scrapbook-card:nth-child(3) {
+  top: 40.3%;
+  left: 64.4%;
+  transform: rotate(5deg);
+}
+
+.scrapbook-card__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 250 / 225;
+  object-fit: cover;
+}
+
+.scrapbook-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.694444cqw;
+  min-height: 4.444444cqw;
+}
+
+.scrapbook-card__footer p {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #171717;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.527778cqw;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.scrapbook-card__heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.777778cqw;
+  height: 2.777778cqw;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #765b93;
+  cursor: pointer;
+}
+
+.scrapbook-card__heart svg {
+  width: 1.666667cqw;
+  height: 1.666667cqw;
+  fill: currentColor;
+}
+
+.scrapbook-card__tape {
+  position: absolute;
+  top: -1.319444cqw;
+  left: 23%;
+  width: 54%;
+  height: 2.361111cqw;
+  background: #e5c7ef;
+  background-image: repeating-linear-gradient(45deg, transparent 0 5px, #ffe6b9 5px 7px, transparent 7px 11px);
+  clip-path: polygon(3% 0, 97% 0, 100% 15%, 97% 30%, 100% 45%, 97% 60%, 100% 75%, 97% 100%, 3% 100%, 0 85%, 3% 70%, 0 55%, 3% 40%, 0 25%);
+  pointer-events: none;
+}
+
+.scrapbook-card:nth-child(2) .scrapbook-card__tape {
+  background: radial-gradient(#fff2c9 1px, transparent 1.5px) 0 0 / 12px 10px #ffc8a7;
+}
+
+.scrapbook-card:nth-child(3) .scrapbook-card__tape {
+  background: repeating-linear-gradient(90deg, #fff4a0 0 8px, #ffe56e 8px 10px);
+}
+
+.scrapbook-page__pagination {
+  position: absolute;
+  top: 84%;
+  left: 40%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.111111cqw;
+  color: #765b93;
+  font-size: 1.111111cqw;
+}
+
+.scrapbook-page__pagination button {
+  border: 1px solid #e6c7de;
+  border-radius: 50%;
+  background: #fff8fc;
+  color: inherit;
+  width: 2.222222cqw;
+  height: 2.222222cqw;
+  font-size: 1.666667cqw;
+  cursor: pointer;
+}
+
+.scrapbook-page__pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.scrapbook-card__heart:focus-visible,
+.scrapbook-page__pagination button:focus-visible {
+  outline: 2px solid #765b93;
+  outline-offset: 3px;
+}
+
+.scrapbook-page__accessible-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

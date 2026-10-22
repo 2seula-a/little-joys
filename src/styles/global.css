@@ -81,6 +81,10 @@ a {
   color: #A44636;
 }
 
+html:has(.site-layout) {
+  scrollbar-gutter: stable;
+}
+
 .site-main {
   padding: 40px;
 }

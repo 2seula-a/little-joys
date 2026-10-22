@@ -1,0 +1,48 @@
+.joys-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 12.083333vw;
+  padding: 2.222222vw 2.777778vw 1.736111vw 3.472222vw;
+  border-radius: 1.388889vw;
+  background: #f9dce6;
+  color: #765b93;
+}
+
+.joys-footer__brand,
+.joys-footer__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.joys-footer__brand {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+.joys-footer__brand p {
+  margin: 0;
+  font-size: 2.777778vw;
+  line-height: 1.5;
+}
+
+.joys-footer__brand small {
+  font-size: 1.25vw;
+}
+
+.joys-footer__message {
+  text-align: center;
+}
+
+.joys-footer__message p {
+  margin: 0 0 1.111111vw;
+  color: #171717;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.388889vw;
+  line-height: 2;
+}
+
+.joys-footer__message small {
+  font-size: 0.972222vw;
+}
