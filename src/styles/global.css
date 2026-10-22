@@ -78,18 +78,7 @@ a {
 }
 
 .site-header__link.is-active {
-  color: #684d88;
-}
-
-.site-header__link.is-active::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  border-radius: 99px;
-  background: currentColor;
-  content: '';
+  color: #A44636;
 }
 
 .site-main {

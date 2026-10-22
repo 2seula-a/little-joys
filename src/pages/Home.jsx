@@ -1,22 +1,51 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { moods } from '../data/moods.js'
+import useScraps from '../hooks/useScraps.js'
 import './Home.css'
 
-const moods = [
-  { icon: '☀', label: '행복해', className: 'happy' },
-  { icon: '♡', label: '포근해', className: 'cozy' },
-  { icon: '☁', label: '쉬고 싶어', className: 'rest' },
-  { icon: '❀', label: '설레', className: 'excited' },
+const heroStars = [
+  { left: 5.1, top: 18.5, size: 24, rotation: 12 },
+  { left: 11.7, top: 14.8, size: 40, rotation: -14, white: true },
+  { left: 33.4, top: 12.8, size: 40, rotation: -12 },
+  { left: 35.5, top: 22.1, size: 25, rotation: -12 },
+  { left: 45.8, top: 20.3, size: 22, rotation: 10, white: true },
+  { left: 67, top: 10, size: 26, rotation: -8, white: true },
+  { left: 73.4, top: 22.1, size: 24, rotation: 35 },
+  { left: 89.2, top: 21.7, size: 39, rotation: 45 },
+  { left: 7.4, top: 40.2, size: 43, rotation: -10 },
+  { left: 10, top: 49.8, size: 24, rotation: -10 },
+  { left: 22.1, top: 32.6, size: 27, rotation: -12 },
+  { left: 27.4, top: 45.2, size: 26, rotation: -10 },
+  { left: 39, top: 50.7, size: 28, rotation: -15 },
+  { left: 59, top: 50.7, size: 43, rotation: -12, white: true },
+  { left: 68.9, top: 38.8, size: 40, rotation: 45 },
+  { left: 67.5, top: 51.1, size: 24, rotation: 45 },
+  { left: 85.1, top: 42.2, size: 26, rotation: 35 },
+  { left: 97.1, top: 75.6, size: 24, rotation: 45 },
+  { left: 78, top: 77.2, size: 25, rotation: 30 },
+  { left: 27.4, top: 79.5, size: 26, rotation: -12 },
+  { left: 33.8, top: 84.9, size: 27, rotation: -10, white: true },
+  { left: 61.2, top: 87.4, size: 27, rotation: -12 },
+  { left: 21.7, top: 93.2, size: 42, rotation: -15 },
+  { left: 83, top: 91.8, size: 26, rotation: -12 },
 ]
 
 const joys = [
-  { image: '/images/home/joy-flower.jpg', title: '꽃이 있는 하루', saved: true },
-  { image: '/images/home/joy-coffee.jpg', title: '맛있는 커피 한 잔', saved: false },
-  { image: '/images/home/joy-sky.jpg', title: '예쁜 하늘 보기', saved: true },
-  { image: '/images/home/joy-rest.jpg', title: '포근한 휴식 시간', saved: false },
-  { image: '/images/home/joy-book.jpg', title: '좋아하는 책 읽기', saved: true },
+  { id: 'joy-flower', image: '/images/home/joy-flower.jpg', title: '꽃이 있는 하루' },
+  { id: 'joy-coffee', image: '/images/home/joy-coffee.jpg', title: '맛있는 커피 한 잔' },
+  { id: 'joy-sky', image: '/images/home/joy-sky.jpg', title: '예쁜 하늘 보기' },
+  { id: 'joy-rest', image: '/images/home/joy-rest.jpg', title: '포근한 휴식 시간' },
+  { id: 'joy-book', image: '/images/home/joy-book.jpg', title: '좋아하는 책 읽기' },
 ]
 
 function Home() {
+  const { scraps, toggleScrap } = useScraps()
+  const navigate = useNavigate()
+
+  function selectMood(type) {
+    navigate(`/mood?type=${type}`)
+  }
+
   return (
     <div className="home-page">
       <section className="home-hero" aria-labelledby="home-title">
@@ -44,14 +73,36 @@ function Home() {
           </div>
           <figcaption>기분 전환 인테리어</figcaption>
         </figure>
+        <div className="home-hero__stars" aria-hidden="true">
+          {heroStars.map(({ left, top, size, rotation, white }, index) => (
+            <span
+              key={index}
+              className="home-hero__star"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                width: size,
+                height: size,
+                backgroundColor: white ? '#ffffff' : '#ffe5ad',
+                transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+              }}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="mood-selector" aria-labelledby="mood-title">
         <img className="mood-selector__decoration mood-selector__decoration--star" src="/images/star.svg" alt="" aria-hidden="true" />
         <h2 id="mood-title">오늘은 어떤 기분인가요?</h2>
         <div className="mood-selector__options">
-          {moods.map(({ icon, label, className }) => (
-            <button className={`mood-button mood-button--${className}`} type="button" key={label}>
+          {moods.map(({ type, icon, label, color }) => (
+            <button
+              className={`mood-button mood-button--${type}`}
+              type="button"
+              key={type}
+              style={{ '--mood-color': color }}
+              onClick={() => selectMood(type)}
+            >
               <span className="mood-button__icon" aria-hidden="true">{icon}</span>
               {label}
             </button>
@@ -70,17 +121,39 @@ function Home() {
         </div>
 
         <div className="joy-grid">
-          {joys.map(({ image, title, saved }) => (
-            <article className="joy-card" key={title}>
-              <img src={image} alt="" />
-              <div className="joy-card__caption">
-                <h3>{title}</h3>
-                <span className={saved ? 'joy-card__heart is-saved' : 'joy-card__heart'} aria-label={saved ? '저장됨' : '저장 안 됨'}>
-                  {saved ? '♥' : '♡'}
-                </span>
-              </div>
-            </article>
-          ))}
+          {joys.map(({ id, image, title }) => {
+            const saved = scraps.some((scrap) => scrap.id === id)
+            return (
+              <article className="joy-card" key={id}>
+                <img src={image} alt="" />
+                <div className="joy-card__caption">
+                  <h3>{title}</h3>
+                  <button
+                    type="button"
+                    className={saved ? 'joy-card__heart is-saved' : 'joy-card__heart'}
+                    aria-label={`${title} 스크랩 ${saved ? '취소' : '추가'}`}
+                    aria-pressed={saved}
+                    onClick={() => toggleScrap({ id, image, title })}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="17"
+                      height="17"
+                      fill={saved ? 'currentColor' : 'none'}
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </section>
     </div>

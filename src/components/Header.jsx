@@ -12,7 +12,7 @@ function Header() {
   return (
     <header className="site-header">
       <NavLink className="site-header__brand" to="/home">
-        LITTLE JOYS <span aria-hidden="true">♥</span>
+        LITTLE JOYS <span aria-hidden="true">💗</span>
       </NavLink>
       <nav aria-label="Main navigation">
         <ul className="site-header__navigation">

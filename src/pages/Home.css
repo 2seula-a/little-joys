@@ -1,13 +1,16 @@
-.home-page {
-  min-height: calc(100vh - 134px);
-  margin: -40px;
-  margin-top: -20px;
-  color: #70548c;
+.site-layout:has(.home-page) {
   background-color: #fff8f5;
   background-image: url('/images/sky.png');
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.home-page {
+  min-height: calc(100vh - 134px);
+  margin: -40px;
+  margin-top: -20px;
+  color: #70548c;
 }
 
 .home-hero {
@@ -19,6 +22,20 @@
   min-height: 438px;
   padding: 28px 72px 20px;
   overflow: hidden;
+}
+
+.home-hero__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-hero__star {
+  position: absolute;
+  display: block;
+  clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
 }
 
 .home-polaroid {
@@ -128,6 +145,7 @@
 
 .mood-selector {
   position: relative;
+  z-index: 1;
   width: calc(100% - 136px);
   margin: 0 auto;
   padding: 22px 80px 30px;
@@ -183,6 +201,15 @@
   font: inherit;
   font-size: 29px;
   white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.home-page .mood-button:hover {
+  background-color: var(--mood-color);
+}
+
+.home-page .mood-button--excited:hover {
+  background-color: #f9b4b9;
 }
 
 .mood-button__icon {
@@ -196,9 +223,11 @@
 .mood-button--excited .mood-button__icon { color: #eb7095; }
 
 .todays-joy {
+  position: relative;
+  z-index: 0;
   width: calc(100% - 136px);
-  margin: 0 auto;
-  padding: 12px 44px 28px;
+  margin: -30px auto 0;
+  padding: 42px 44px 28px;
   background: #fffaf5;
 }
 
@@ -270,7 +299,25 @@
 }
 
 .joy-card__heart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: none;
+  width: 17px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
   color: #765b93;
   font-size: 17px;
+  cursor: pointer;
+}
+
+
+.joy-card__heart svg {
+  display: block;
+  flex: none;
+  width: 17px;
+  height: 17px;
 }

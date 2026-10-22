@@ -1,0 +1,358 @@
+.site-layout:has(.mood-page) {
+  background: #fff8f5 url('/images/sky.png') center top / cover no-repeat;
+}
+
+.mood-page {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 40px 80px 48px;
+  border-radius: 32px;
+  color: #70548c;
+  background: #fffaf5;
+  text-align: center;
+}
+
+.mood-page__stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mood-page__star {
+  position: absolute;
+  display: block;
+  clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+}
+
+.mood-page__eyebrow {
+  margin: 0 0 16px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.mood-page h1 {
+  font-size: 48px;
+  line-height: 1.4;
+}
+
+.mood-page__description {
+  margin: 18px 0 0;
+  font-size: 24px;
+}
+
+.mood-page__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 48px;
+  width: 740px;
+  margin: 40px auto 48px;
+}
+
+.mood-page__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  height: 90px;
+  padding: 16px 24px;
+  border: 2px solid transparent;
+  border-radius: 48px;
+  color: #3e463f;
+  background: #ffffff;
+  font: inherit;
+  font-size: 29px;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 7px 8px 10px rgb(225 91 139 / 38%);
+  cursor: pointer;
+}
+
+.mood-page__icon {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.mood-page__button > .mood-page__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.mood-page__button--happy .mood-page__icon { color: #ffb660; }
+.mood-page__button--cozy .mood-page__icon { color: #ef7296; }
+.mood-page__button--rest .mood-page__icon { color: #7c7be8; }
+.mood-page__button--excited .mood-page__icon { color: #eb7095; }
+
+.mood-page__joys {
+  position: relative;
+  min-height: 210px;
+  padding: 32px 90px;
+  border-radius: 28px;
+  background: #f8e5ef;
+}
+
+.mood-page__joys > h2 {
+  margin: 0 0 28px;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.mood-page__placeholder {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.mood-page__sticker {
+  position: absolute;
+  width: 130px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mood-page__sticker--star {
+  top: 36px;
+  left: -58px;
+}
+
+.mood-page__sticker--heart {
+  top: 34px;
+  right: -58px;
+}
+
+.mood-page__button[aria-pressed='true'] {
+  border-color: #765b93;
+  background: var(--mood-color);
+}
+
+.mood-page__recommendations {
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.mood-page__recommendations h2 {
+  margin: 0 0 16px;
+}
+
+.mood-page__recommendations ul {
+  margin: 0;
+  line-height: 2;
+}
+
+.mood-page--happy .mood-page__button--happy[aria-pressed='true'] {
+  border-color: transparent;
+  background: #ffe8b2;
+}
+
+.mood-page--happy .mood-page__joys,
+.mood-page--cozy .mood-page__joys,
+.mood-page--rest .mood-page__joys,
+.mood-page--excited .mood-page__joys {
+  margin: 0 -80px -48px;
+  padding: 24px 22px 20px;
+  background: #fff1c9;
+}
+
+.mood-page--happy .mood-page__joys > h2,
+.mood-page--cozy .mood-page__joys > h2,
+.mood-page--rest .mood-page__joys > h2,
+.mood-page--excited .mood-page__joys > h2 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.mood-page__happy-description,
+.mood-page__cozy-description,
+.mood-page__rest-description,
+.mood-page__excited-description {
+  margin: 0 0 20px;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.mood-page__happy-list,
+.mood-page__cozy-list,
+.mood-page__rest-list,
+.mood-page__excited-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mood-page__happy-list li,
+.mood-page__cozy-list li,
+.mood-page__rest-list li,
+.mood-page__excited-list li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 56px;
+  padding: 6px 56px;
+  border-radius: 10px;
+  color: #ffb660;
+  background: #ffffff;
+  font-size: 26px;
+  text-align: left;
+}
+
+.mood-page__happy-cake {
+  top: 235px;
+  left: 28px;
+  width: 130px;
+}
+
+.mood-page__happy-crown {
+  top: 250px;
+  right: 55px;
+  width: 56px;
+}
+
+.mood-page__happy-sun {
+  top: -44px;
+  left: 50px;
+  width: 110px;
+}
+
+.mood-page__happy-star {
+  top: 0;
+  right: 24%;
+  width: 52px;
+}
+
+.mood-page__happy-ticket {
+  top: -50px;
+  right: -20px;
+  width: 140px;
+}
+
+.mood-page--cozy .mood-page__button--cozy[aria-pressed='true'] {
+  border-color: transparent;
+  background: #f8e5ef;
+}
+
+.mood-page--cozy .mood-page__joys {
+  background: #f8e5ef;
+}
+
+.mood-page__cozy-list li {
+  color: #ef7296;
+}
+
+.mood-page__cozy-candy {
+  top: 235px;
+  left: 38px;
+  width: 112px;
+}
+
+.mood-page__cozy-candy2 {
+  top: 325px;
+  left: 20px;
+  width: 112px;
+}
+
+.mood-page__cozy-heart {
+  top: 230px;
+  right: 55px;
+  width: 76px;
+}
+
+.mood-page__cozy-flower {
+  top: -36px;
+  left: 48px;
+  width: 112px;
+}
+
+.mood-page__cozy-ticket {
+  top: -44px;
+  right: -24px;
+  width: 150px;
+}
+
+.mood-page--rest .mood-page__button--rest[aria-pressed='true'] {
+  border-color: transparent;
+  background: #dedaf3;
+}
+
+.mood-page--rest .mood-page__joys {
+  background: #dedaf3;
+}
+
+.mood-page__rest-list li {
+  color: #4038b5;
+}
+
+.mood-page__rest-list .mood-page__icon {
+  color: #7c7be8;
+}
+
+.mood-page__rest-cloud {
+  top: 235px;
+  left: 28px;
+  width: 120px;
+}
+
+.mood-page__rest-flower {
+  top: 175px;
+  right: 55px;
+  width: 100px;
+}
+
+.mood-page__rest-eyemask {
+  top: -34px;
+  left: 48px;
+  width: 126px;
+}
+
+.mood-page__rest-ticket {
+  top: -50px;
+  right: -24px;
+  width: 160px;
+}
+
+.mood-page--excited .mood-page__button--excited[aria-pressed='true'] {
+  border-color: transparent;
+  background: #f9b4b9;
+}
+
+.mood-page--excited .mood-page__joys {
+  background: #f9b4b9;
+}
+
+.mood-page__excited-list li {
+  color: #eb7095;
+}
+
+.mood-page__excited-cherry {
+  top: 210px;
+  left: 20px;
+  width: 150px;
+}
+
+.mood-page__excited-coffee {
+  top: 190px;
+  right: 55px;
+  width: 108px;
+}
+
+.mood-page__excited-diary {
+  top: -48px;
+  left: 60px;
+  width: 112px;
+}
+
+.mood-page__excited-ticket {
+  top: -64px;
+  right: -32px;
+  width: 172px;
+}
