@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { drawTodayJoy } from '../data/todayJoys.js'
 import useScraps from '../hooks/useScraps.js'
 import './Today.css'
@@ -7,6 +7,18 @@ function Today() {
   const [result, setResult] = useState(null)
   const { scraps, toggleScrap } = useScraps()
   const saved = result ? scraps.some((scrap) => scrap.id === result.id) : false
+
+  useEffect(() => {
+  function resetToday() {
+    setResult(null)
+  }
+
+  window.addEventListener('reset-today', resetToday)
+
+  return () => {
+    window.removeEventListener('reset-today', resetToday)
+  }
+}, [])
 
   function drawJoy() {
     setResult(drawTodayJoy(result?.id))

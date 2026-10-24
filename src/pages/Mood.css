@@ -99,15 +99,21 @@
 }
 
 .mood-page__joys > h2 {
-  margin: 0 0 28px;
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
   font-size: 25px;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .mood-page__placeholder {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: 22px;
   line-height: 1.6;
+  text-align: center;
 }
 
 .mood-page__sticker {
@@ -119,13 +125,15 @@
 }
 
 .mood-page__sticker--star {
-  top: 36px;
-  left: -58px;
+  top: 24px;
+  left: 100px;
+  width: 130px;
 }
 
 .mood-page__sticker--heart {
-  top: 34px;
-  right: -58px;
+  top: 50px;
+  right: 30px;
+  width: 110px;
 }
 
 .mood-page__button[aria-pressed='true'] {
@@ -355,4 +363,19 @@
   top: -64px;
   right: -32px;
   width: 172px;
+}
+/* 기본 MOOD 화면의 제목과 설명 중앙 정렬 */
+.mood-page:not(.mood-page--happy):not(.mood-page--cozy):not(.mood-page--rest):not(.mood-page--excited) .mood-page__joys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mood-page__joys > h2 {
+  margin-bottom: 12px;
+}
+
+.mood-page__placeholder {
+  margin: 0;
 }

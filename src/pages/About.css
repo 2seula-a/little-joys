@@ -43,7 +43,7 @@
   padding: 1.388889cqw 2.986111cqw 2.222222cqw;
   border-radius: 2.222222cqw;
   background: #fff2ccbf;
-  color: #111;
+  color: #4d3665;
   font-size: 1.388889cqw;
   line-height: 2;
 }
@@ -88,8 +88,8 @@
 .about-page__cloud {
   width: 15.277778cqw;
   height: auto;
-  top: 1.736111cqw;
-  right: 1.736111cqw;
+  top: 7cqw;
+  right: 0.35cqw;
 }
 
 .about-page > .joys-footer {

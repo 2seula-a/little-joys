@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useOutletContext, useSearchParams } from 'react-router-dom'
 import { moods } from '../data/moods.js'
 import './Mood.css'
@@ -58,13 +58,32 @@ function Mood() {
   const isRest = selectedType === 'rest'
   const isExcited = selectedType === 'excited'
 
+  const [randomRecommendations, setRandomRecommendations] = useState([])
+
+  function getRandomRecommendations(type) {
+    const mood = moods.find((item) => item.type === type)
+    if (!mood) return []
+
+    const shuffled = [...mood.recommendations].sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, 3)
+  }
+
   useEffect(() => {
     setSelectedMood(selectedType)
   }, [selectedType, setSelectedMood])
 
+  useEffect(() => {
+    if (selectedType) {
+      setRandomRecommendations(getRandomRecommendations(selectedType))
+    } else {
+      setRandomRecommendations([])
+    }
+  }, [selectedType])
+
   function selectMood(type) {
     setSearchParams((previous) => {
       const next = new URLSearchParams(previous)
+
       if (next.get('type') === type) {
         next.delete('type')
       } else {
@@ -144,36 +163,46 @@ function Mood() {
           </>
         ) : (
           <>
-            <img className="mood-page__sticker mood-page__sticker--star" src="/images/mood/star.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__sticker--heart" src={`${import.meta.env.BASE_URL}images/mood/hart.png`} alt="" aria-hidden="true" />
+            <img
+              className="mood-page__sticker mood-page__sticker--star"
+              src={`${import.meta.env.BASE_URL}images/mood/star.png`}
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              className="mood-page__sticker mood-page__sticker--heart"
+              src={`${import.meta.env.BASE_URL}images/mood/hart.png`}
+              alt=""
+              aria-hidden="true"
+            />
           </>
         )}
         <h2 id="mood-joys-title">{isHappy ? 'YOUR HAPPY MOMENTS' : isCozy ? 'YOUR COZY MOMENTS' : isRest ? 'YOUR REST MOMENTS' : isExcited ? 'YOUR EXCITED MOMENTS' : 'YOUR LITTLE JOYS'}</h2>
         <div aria-live="polite">
-        {isHappy || isCozy || isRest || isExcited ? (
-          <>
-            <p className={`mood-page__${selectedType}-description`}>{isHappy ? '행복한' : isCozy ? '포근한' : isRest ? '쉬고 싶은' : '설레는'} 기분에 어울리는 느낌</p>
-            <ul className={`mood-page__${selectedType}-list`}>
-              {selectedMood.recommendations.map((recommendation) => (
-                <li key={recommendation}>
-                  <span className="mood-page__icon" aria-hidden="true">{selectedMood.icon}</span>
-                  <span>{recommendation}</span>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : selectedMood ? (
-          <section className="mood-page__recommendations" style={{ backgroundColor: selectedMood.color }} aria-labelledby="mood-recommendations-title">
-            <h2 id="mood-recommendations-title">{selectedMood.label} — 오늘의 추천</h2>
-            <ul>
-              {selectedMood.recommendations.map((recommendation) => (
-                <li key={recommendation}>{recommendation}</li>
-              ))}
-            </ul>
-          </section>
-        ) : (
-          <p className="mood-page__placeholder">선택한 기분에 어울리는 행복이 이곳에 나타나요.</p>
-        )}
+          {isHappy || isCozy || isRest || isExcited ? (
+            <>
+              <p className={`mood-page__${selectedType}-description`}>{isHappy ? '행복한' : isCozy ? '포근한' : isRest ? '쉬고 싶은' : '설레는'} 기분에 어울리는 느낌</p>
+              <ul className={`mood-page__${selectedType}-list`}>
+                {randomRecommendations.map((recommendation) => (
+                  <li key={recommendation}>
+                    <span className="mood-page__icon" aria-hidden="true">{selectedMood.icon}</span>
+                    <span>{recommendation}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : selectedMood ? (
+            <section className="mood-page__recommendations" style={{ backgroundColor: selectedMood.color }} aria-labelledby="mood-recommendations-title">
+              <h2 id="mood-recommendations-title">{selectedMood.label} — 오늘의 추천</h2>
+              <ul>
+                {selectedMood.recommendations.map((recommendation) => (
+                  <li key={recommendation}>{recommendation}</li>
+                ))}
+              </ul>
+            </section>
+          ) : (
+            <p className="mood-page__placeholder">선택한 기분에 어울리는 행복이 이곳에 나타나요.</p>
+          )}
         </div>
       </section>
     </section>

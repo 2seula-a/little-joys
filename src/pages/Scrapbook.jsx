@@ -32,9 +32,7 @@ function Scrapbook() {
       ) : (
         <>
           <p className="scrapbook-page__count" role="status">
-            <span aria-hidden="true">♥ ˚ ♥</span>
             {scraps.length}개의 행복
-            <span aria-hidden="true">♥ ˚ ♥</span>
           </p>
           <div className="scrapbook-page__cards">
             {visibleScraps.map((scrap) => (

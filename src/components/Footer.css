@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  min-height: 12.083333vw;
-  padding: 2.222222vw 2.777778vw 1.736111vw 3.472222vw;
+  min-height: 11vw;
+  padding: 1.2vw 2.777778vw 1.736111vw 3.472222vw;
   border-radius: 1.388889vw;
   background: #f9dce6;
   color: #765b93;
@@ -37,12 +37,18 @@
 
 .joys-footer__message p {
   margin: 0 0 1.111111vw;
-  color: #171717;
-  font-family: 'Comic Sans MS', cursive;
+  color: #765b93;
+  font-family: 'SUIT', sans-serif;
   font-size: 1.388889vw;
-  line-height: 2;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .joys-footer__message small {
   font-size: 0.972222vw;
+}
+
+.joys-footer__brand p,
+.joys-footer__message p {
+  transform: translateY(1.5vw);
 }

@@ -20,7 +20,7 @@ function About() {
         <section className="about-page__panel about-page__story" aria-labelledby="about-story">
           <h2 id="about-story">Our Story</h2>
           <p>바쁜 일상 속에서도 우리는 늘 작은 행복을 마주해요.<br />따스한 햇살, 좋아하는 음악, 맛있는 간식,<br />사랑하는 사람의 한마디처럼 사소하지만<br />마음을 환하게 해주는 순간들이에요.</p>
-          <p>LITTLE JOYS는 그 소중한 순간들을<br />하나하나 모아, 언제든 다시 꺼내볼 수 있는<br />나만의 행복 아카이브가 되고자 시작되었어요.</p>
+          <p>LITTLE JOYS는 그 소중한 순간들을<br />하나하나 모아, 언제든 다시 꺼내볼 수 있는<br />작은 행복 아카이브로 시작되었어요.</p>
           <svg className="about-page__rainbow" viewBox="0 0 200 150" aria-hidden="true">
             <path d="M20 130 C24 -10 176 -10 180 130" fill="none" stroke="white" strokeWidth="36" strokeLinecap="round" />
             <path d="M20 130 C24 -10 176 -10 180 130" fill="none" stroke="#8ba0e8" strokeWidth="12" strokeLinecap="round" />
@@ -33,8 +33,8 @@ function About() {
         </section>
         <section className="about-page__panel about-page__how" aria-labelledby="about-how">
           <h2 id="about-how">How It Works</h2>
-          <div><h3>오늘의 작은 행복을 발견해요</h3><p>일상 속 반짝이는 순간들을 기록해요.</p></div>
-          <div><h3>나만의 방식으로 담아봐요.</h3><p>글, 사진, 이모티콘 등 자유롭게 표현할 수 있어요.</p></div>
+          <div><h3>오늘의 작은 행복을 발견해요</h3><p>오늘의 기분에 어울리는 작은 행복을 발견해요.</p></div>
+          <div><h3>마음에 드는 행복을 담아봐요.</h3><p>마음에 드는 행복을 스크랩하고, 나만의 공간에 차곡차곡 모아보세요.</p></div>
           <div><h3>언제든 다시 꺼내보며 미소지어요.</h3><p>모아둔 순간들이 지금도, 앞으로도 힘이 되어줄 거예요.</p></div>
           <svg className="about-page__cloud" viewBox="0 0 220 145" aria-hidden="true">
             <path d="M52 119 C-8 129 -6 42 50 39 C55 0 108 -3 124 29 C146 4 183 19 183 48 C238 58 219 131 170 124 C149 146 123 133 111 124 C89 147 61 139 52 119Z" fill="#b2dce0" stroke="white" strokeWidth="9" />
