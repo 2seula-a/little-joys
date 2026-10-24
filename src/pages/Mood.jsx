@@ -145,7 +145,7 @@ function Mood() {
         ) : (
           <>
             <img className="mood-page__sticker mood-page__sticker--star" src="/images/mood/star.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__sticker--heart" src="/images/mood/hart.png" alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__sticker--heart" src={`${import.meta.env.BASE_URL}images/mood/hart.png`} alt="" aria-hidden="true" />
           </>
         )}
         <h2 id="mood-joys-title">{isHappy ? 'YOUR HAPPY MOMENTS' : isCozy ? 'YOUR COZY MOMENTS' : isRest ? 'YOUR REST MOMENTS' : isExcited ? 'YOUR EXCITED MOMENTS' : 'YOUR LITTLE JOYS'}</h2>

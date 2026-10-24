@@ -37,7 +37,7 @@ function Today() {
             <img src={result.image} alt="" />
             <figcaption>{result.title}</figcaption>
           </figure>
-          <img className="today-page__tape" src="/images/today/tape.png" alt="" aria-hidden="true" />
+          <img className="today-page__tape" src={`${import.meta.env.BASE_URL}images/today/tape.png`} alt="" aria-hidden="true" />
           </>
         )}
       </div>
@@ -49,7 +49,10 @@ function Today() {
           aria-pressed={saved}
           onClick={() => toggleScrap(result)}
         >
-          <img src={saved ? '/images/today/today-scrap-finish.svg' : '/images/today/today-scrap.svg'} alt="" />
+          <img
+            src={`${import.meta.env.BASE_URL}images/today/${saved ? 'today-scrap-finish.svg' : 'today-scrap.svg'}`}
+            alt=""
+          />
         </button>
       )}
       <button className="today-page__draw" type="button" onClick={drawJoy}>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LITTLE JOYS</title>
+    <script>
+      const segmentCount = 1;
+      const locationData = window.location;
+
+      const pathSegments = locationData.pathname
+        .split('/')
+        .filter(Boolean);
+
+      const basePath =
+        '/' +
+        pathSegments.slice(0, segmentCount).join('/') +
+        '/';
+
+      const routePath =
+        '/' +
+        pathSegments.slice(segmentCount).join('/') +
+        (locationData.pathname.endsWith('/') ? '/' : '');
+
+      const redirectUrl =
+        locationData.protocol +
+        '//' +
+        locationData.host +
+        basePath +
+        '?' +
+        routePath.replace(/&/g, '~and~') +
+        (locationData.search
+          ? '&' +
+            locationData.search.slice(1).replace(/&/g, '~and~')
+          : '') +
+        locationData.hash;
+
+      locationData.replace(redirectUrl);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -30,12 +30,13 @@ const heroStars = [
   { left: 83, top: 91.8, size: 26, rotation: -12 },
 ]
 
+const BASE = import.meta.env.BASE_URL
 const joys = [
-  { id: 'joy-flower', image: '/images/home/joy-flower.jpg', title: '꽃이 있는 하루' },
-  { id: 'joy-coffee', image: '/images/home/joy-coffee.jpg', title: '맛있는 커피 한 잔' },
-  { id: 'joy-sky', image: '/images/home/joy-sky.jpg', title: '예쁜 하늘 보기' },
-  { id: 'joy-rest', image: '/images/home/joy-rest.jpg', title: '포근한 휴식 시간' },
-  { id: 'joy-book', image: '/images/home/joy-book.jpg', title: '좋아하는 책 읽기' },
+  { id: 'joy-flower', image: `${BASE}images/home/joy-flower.jpg`, title: '꽃이 있는 하루' },
+  { id: 'joy-coffee', image: `${BASE}images/home/joy-coffee.jpg`, title: '맛있는 커피 한 잔' },
+  { id: 'joy-sky', image: `${BASE}images/home/joy-sky.jpg`, title: '예쁜 하늘 보기' },
+  { id: 'joy-rest', image: `${BASE}images/home/joy-rest.jpg`, title: '포근한 휴식 시간' },
+  { id: 'joy-book', image: `${BASE}images/home/joy-book.jpg`, title: '좋아하는 책 읽기' },
 ]
 
 function Home() {
@@ -51,7 +52,7 @@ function Home() {
       <section className="home-hero" aria-labelledby="home-title">
         <figure className="home-polaroid home-polaroid--cake">
           <div className="home-polaroid__photo">
-            <img src="/images/home/hero-cake.png" alt="딸기 케이크" />
+            <img src={`${BASE}images/home/hero-cake.png`} alt="딸기 케이크" />
           </div>
           <figcaption>딸기케이크로 당충전하기</figcaption>
         </figure>
@@ -69,7 +70,7 @@ function Home() {
 
         <figure className="home-polaroid home-polaroid--flower">
           <div className="home-polaroid__photo">
-            <img src="/images/home/hero-flower.png" alt="분홍 튤립" />
+            <img src={`${BASE}images/home/hero-flower.png`} alt="분홍 튤립" />
           </div>
           <figcaption>기분 전환 인테리어</figcaption>
         </figure>
@@ -92,7 +93,7 @@ function Home() {
       </section>
 
       <section className="mood-selector" aria-labelledby="mood-title">
-        <img className="mood-selector__decoration mood-selector__decoration--star" src="/images/star.svg" alt="" aria-hidden="true" />
+        <img className="mood-selector__decoration mood-selector__decoration--star" src={`${BASE}images/star.svg`} alt="" aria-hidden="true" />
         <h2 id="mood-title">오늘은 어떤 기분인가요?</h2>
         <div className="mood-selector__options">
           {moods.map(({ type, icon, label, color }) => (
@@ -108,7 +109,7 @@ function Home() {
             </button>
           ))}
         </div>
-        <img className="mood-selector__decoration mood-selector__decoration--ice" src="/images/ice.svg" alt="" aria-hidden="true" />
+        <img className="mood-selector__decoration mood-selector__decoration--ice" src={`${BASE}images/ice.svg`} alt="" aria-hidden="true" />
       </section>
 
       <section className="todays-joy" aria-labelledby="joy-title">
