@@ -75,11 +75,11 @@
 }
 
 .today-page--result {
-  background-image: url('/images/today/today-result-new-1.png');
+  background-image: url('/little-joys/images/today/today-result-new-1.png');
 }
 
 .today-page--result::before {
-  background-image: url('/images/today/today-result-new-1.png');
+  background-image: url('/little-joys/images/today/today-result-new-1.png');
 }
 
 .today-page__tape {

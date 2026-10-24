@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('public/images/scrapbook/count-sticker.png') center / 100% 100% no-repeat;
+  background: url('/little-joys/images/scrapbook/count-sticker.png') center / 100% 100% no-repeat;
   color: #765b93;
   font-family: 'Comic Sans MS', cursive;
   font-size: 2.5cqw;
