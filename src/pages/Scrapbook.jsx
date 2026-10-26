@@ -50,10 +50,13 @@ function Scrapbook() {
           </div>
           {pageCount > 1 && (
             <nav className="scrapbook-page__pagination" aria-label="저장된 행복 페이지">
-              <button type="button" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)} aria-label="이전 페이지">‹</button>
+              <button type="button" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)} aria-label="이전 페이지">
+                <span className="pagination-arrow">‹</span>
+              </button>
               <span aria-live="polite">{currentPage + 1} / {pageCount}</span>
-              <button type="button" disabled={currentPage === pageCount - 1} onClick={() => setPage(currentPage + 1)} aria-label="다음 페이지">›</button>
-            </nav>
+              <button type="button" disabled={currentPage === pageCount - 1} onClick={() => setPage(currentPage + 1)} aria-label="다음 페이지">
+                <span className="pagination-arrow">›</span>
+              </button>            </nav>
           )}
         </>
       )}

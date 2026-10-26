@@ -36,6 +36,10 @@
   pointer-events: none;
 }
 
+.scrapbook-page::before {
+  display: none;
+}
+
 .scrapbook-page__find {
   position: absolute;
   left: 22.847222%;
@@ -195,6 +199,16 @@
   height: 2.222222cqw;
   font-size: 1.666667cqw;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 30;
+}
+
+.pagination-arrow {
+  display: inline-block;
+  line-height: 1;
+  transform: translateY(-2px);
 }
 
 .scrapbook-page__pagination button:disabled {

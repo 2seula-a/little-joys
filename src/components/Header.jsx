@@ -12,7 +12,13 @@ function Header() {
   return (
     <header className="site-header">
       <NavLink className="site-header__brand" to="/home">
-        LITTLE JOYS <span aria-hidden="true">💗</span>
+        LITTLE JOYS
+        <img
+          className="site-header__logo-icon"
+          src={`${import.meta.env.BASE_URL}images/common/logo-star.svg`}
+          alt=""
+          aria-hidden="true"
+        />
       </NavLink>
       <nav aria-label="Main navigation">
         <ul className="site-header__navigation">

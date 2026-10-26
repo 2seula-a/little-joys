@@ -37,6 +37,10 @@
   pointer-events: none;
 }
 
+.today-page::before {
+  display: none;
+}
+
 .today-page__draw {
   position: absolute;
   display: block;

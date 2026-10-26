@@ -53,6 +53,7 @@
   color: #765b93;
   font-size: 2.222222cqw;
   line-height: 1.5;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 .about-page__panel p {
@@ -94,4 +95,5 @@
 
 .about-page > .joys-footer {
   margin: 4.375cqw 1.388889cqw 0;
+  font-family: Georgia, 'Times New Roman', serif;
 }

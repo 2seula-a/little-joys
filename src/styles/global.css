@@ -34,12 +34,12 @@ a {
   align-items: center;
   justify-content: space-between;
   width: calc(100% - 44px);
-  height: 74px;
+  height: 85px;
   margin: 0 22px;
   padding: 0 68px;
   border-radius: 20px;
   color: #765b93;
-  background: #f8e5ef;
+  background: #F9DCE4;
 }
 
 .site-header__brand {
@@ -49,6 +49,16 @@ a {
   letter-spacing: -1px;
   text-decoration: none;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-header__logo-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .site-header__brand span {
