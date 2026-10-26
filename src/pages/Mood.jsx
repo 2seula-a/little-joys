@@ -98,29 +98,33 @@ function Mood() {
       <MoodStars stars={upperStars} />
       {isHappy && (
         <>
-          <img className="mood-page__sticker mood-page__happy-cake" src="/images/mood/happy-cake.png" alt="" aria-hidden="true" />
-          <img className="mood-page__sticker mood-page__happy-crown" src="/images/mood/happy-crown.png" alt="" aria-hidden="true" />
+          <img
+            className="mood-page__sticker mood-page__happy-cake"
+            src={`${import.meta.env.BASE_URL}images/mood/happy-cake.png`}
+            alt=""
+            aria-hidden="true"
+          />          <img className="mood-page__sticker mood-page__happy-crown" src={`${import.meta.env.BASE_URL}images/mood/happy-crown.png`} alt="" aria-hidden="true" />
         </>
       )}
       {isCozy && (
         <>
-          <img className="mood-page__sticker mood-page__cozy-candy" src="/images/mood/cozy-candy.png" alt="" aria-hidden="true" />
-          <img className="mood-page__sticker mood-page__cozy-candy2" src="/images/mood/cozy-candy2.png" alt="" aria-hidden="true" />
-          <img className="mood-page__sticker mood-page__cozy-heart" src="/images/mood/cozy-hart.png" alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__cozy-candy" src={`${import.meta.env.BASE_URL}images/mood/cozy-candy.png`} alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__cozy-candy2" src={`${import.meta.env.BASE_URL}images/mood/cozy-candy2.png`} alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__cozy-heart" src={`${import.meta.env.BASE_URL}images/mood/cozy-hart.png`} alt="" aria-hidden="true" />
         </>
       )}
       <p className="mood-page__eyebrow">PICK YOUR MOOD</p>
       {isRest && (
         <>
-          <img className="mood-page__sticker mood-page__rest-cloud" src="/images/mood/rest-cloud.png" alt="" aria-hidden="true" />
-          <img className="mood-page__sticker mood-page__rest-flower" src="/images/mood/rest-flower.png" alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__rest-cloud" src={`${import.meta.env.BASE_URL}images/mood/rest-cloud.png`} alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__rest-flower" src={`${import.meta.env.BASE_URL}images/mood/rest-flower.png`} alt="" aria-hidden="true" />
         </>
       )}
       <h1>오늘의 기분을 골라봐!</h1>
       {isExcited && (
         <>
-          <img className="mood-page__sticker mood-page__excited-cherry" src="/images/mood/excited-cherry.png" alt="" aria-hidden="true" />
-          <img className="mood-page__sticker mood-page__excited-coffee" src="/images/mood/excited-coffee.png" alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__excited-cherry" src={`${import.meta.env.BASE_URL}images/mood/excited-cherry.png`} alt="" aria-hidden="true" />
+          <img className="mood-page__sticker mood-page__excited-coffee" src={`${import.meta.env.BASE_URL}images/mood/excited-coffee.png`} alt="" aria-hidden="true" />
         </>
       )}
       <p className="mood-page__description">지금 마음에 어울리는 작은 행복을 발견해요.</p>
@@ -142,24 +146,24 @@ function Mood() {
         <MoodStars stars={lowerStars} />
         {isHappy ? (
           <>
-            <img className="mood-page__sticker mood-page__happy-sun" src="/images/mood/happy-sun.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__happy-star" src="/images/mood/happy-star.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__happy-ticket" src="/images/mood/happy-sticker.png" alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__happy-sun" src={`${import.meta.env.BASE_URL}images/mood/happy-sun.png`} alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__happy-star" src={`${import.meta.env.BASE_URL}images/mood/happy-star.png`} alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__happy-ticket" src={`${import.meta.env.BASE_URL}images/mood/happy-sticker.png`} alt="" aria-hidden="true" />
           </>
         ) : isCozy ? (
           <>
-            <img className="mood-page__sticker mood-page__cozy-flower" src="/images/mood/cozy-flower.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__cozy-ticket" src="/images/mood/cozy-sticker.png" alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__cozy-flower" src={`${import.meta.env.BASE_URL}images/mood/cozy-flower.png`} alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__cozy-ticket" src={`${import.meta.env.BASE_URL}images/mood/cozy-sticker.png`} alt="" aria-hidden="true" />
           </>
         ) : isRest ? (
           <>
-            <img className="mood-page__sticker mood-page__rest-eyemask" src="/images/mood/rest-eyemask.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__rest-ticket" src="/images/mood/rest-sticker.png" alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__rest-eyemask" src={`${import.meta.env.BASE_URL}images/mood/rest-eyemask.png`} alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__rest-ticket" src={`${import.meta.env.BASE_URL}images/mood/rest-sticker.png`} alt="" aria-hidden="true" />
           </>
         ) : isExcited ? (
           <>
-            <img className="mood-page__sticker mood-page__excited-diary" src="/images/mood/excited-diary.png" alt="" aria-hidden="true" />
-            <img className="mood-page__sticker mood-page__excited-ticket" src="/images/mood/excited-sticker.png" alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__excited-diary" src={`${import.meta.env.BASE_URL}images/mood/excited-diary.png`} alt="" aria-hidden="true" />
+            <img className="mood-page__sticker mood-page__excited-ticket" src={`${import.meta.env.BASE_URL}images/mood/excited-sticker.png`} alt="" aria-hidden="true" />
           </>
         ) : (
           <>
