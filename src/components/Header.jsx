@@ -1,4 +1,7 @@
+
+import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+
 const navigation = [
   { label: 'Home', path: '/home' },
   { label: 'Mood', path: '/mood' },
@@ -9,9 +12,23 @@ const navigation = [
 
 function Header() {
   const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  function handleNavigation(path) {
+    setMenuOpen(false)
+
+    if (path === '/today' && location.pathname === '/today') {
+      window.dispatchEvent(new Event('reset-today'))
+    }
+  }
+
   return (
     <header className="site-header">
-      <NavLink className="site-header__brand" to="/home">
+      <NavLink
+        className="site-header__brand"
+        to="/home"
+        onClick={() => setMenuOpen(false)}
+      >
         LITTLE JOYS
         <img
           className="site-header__logo-icon"
@@ -20,7 +37,25 @@ function Header() {
           aria-hidden="true"
         />
       </NavLink>
-      <nav aria-label="Main navigation">
+
+      <button
+        className="site-header__menu-toggle"
+        type="button"
+        aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'}
+        aria-expanded={menuOpen}
+        aria-controls="site-navigation"
+        onClick={() => setMenuOpen((prev) => !prev)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <nav
+        id="site-navigation"
+        className={menuOpen ? 'site-header__nav is-open' : 'site-header__nav'}
+        aria-label="Main navigation"
+      >
         <ul className="site-header__navigation">
           {navigation.map(({ label, path }) => (
             <li key={path}>
@@ -29,11 +64,7 @@ function Header() {
                   isActive ? 'site-header__link is-active' : 'site-header__link'
                 }
                 to={path}
-                onClick={() => {
-                  if (path === '/today' && location.pathname === '/today') {
-                    window.dispatchEvent(new Event('reset-today'))
-                  }
-                }}
+                onClick={() => handleNavigation(path)}
               >
                 {label}
               </NavLink>

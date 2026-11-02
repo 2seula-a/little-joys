@@ -76,7 +76,7 @@
   line-height: 1;
 }
 
-.mood-page__button > .mood-page__icon {
+.mood-page__button>.mood-page__icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,10 +85,21 @@
   flex-shrink: 0;
 }
 
-.mood-page__button--happy .mood-page__icon { color: #ffb660; }
-.mood-page__button--cozy .mood-page__icon { color: #ef7296; }
-.mood-page__button--rest .mood-page__icon { color: #7c7be8; }
-.mood-page__button--excited .mood-page__icon { color: #eb7095; }
+.mood-page__button--happy .mood-page__icon {
+  color: #ffb660;
+}
+
+.mood-page__button--cozy .mood-page__icon {
+  color: #ef7296;
+}
+
+.mood-page__button--rest .mood-page__icon {
+  color: #7c7be8;
+}
+
+.mood-page__button--excited .mood-page__icon {
+  color: #eb7095;
+}
 
 .mood-page__joys {
   position: relative;
@@ -98,7 +109,7 @@
   background: #f8e5ef;
 }
 
-.mood-page__joys > h2 {
+.mood-page__joys>h2 {
   position: relative;
   z-index: 1;
   margin: 0 0 12px;
@@ -169,10 +180,10 @@
   background: #fff1c9;
 }
 
-.mood-page--happy .mood-page__joys > h2,
-.mood-page--cozy .mood-page__joys > h2,
-.mood-page--rest .mood-page__joys > h2,
-.mood-page--excited .mood-page__joys > h2 {
+.mood-page--happy .mood-page__joys>h2,
+.mood-page--cozy .mood-page__joys>h2,
+.mood-page--rest .mood-page__joys>h2,
+.mood-page--excited .mood-page__joys>h2 {
   margin: 0 0 12px;
   font-size: 14px;
   letter-spacing: 0;
@@ -364,6 +375,7 @@
   right: -32px;
   width: 172px;
 }
+
 /* 기본 MOOD 화면의 제목과 설명 중앙 정렬 */
 .mood-page:not(.mood-page--happy):not(.mood-page--cozy):not(.mood-page--rest):not(.mood-page--excited) .mood-page__joys {
   display: flex;
@@ -372,10 +384,278 @@
   justify-content: center;
 }
 
-.mood-page__joys > h2 {
+.mood-page__joys>h2 {
   margin-bottom: 12px;
 }
 
 .mood-page__placeholder {
   margin: 0;
+}
+
+
+/* MOOD - Tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mood-page {
+    width: 100%;
+    padding: 36px 48px 44px;
+  }
+
+  .mood-page__eyebrow {
+    font-size: 22px;
+  }
+
+  .mood-page h1 {
+    font-size: 40px;
+  }
+
+  .mood-page__description {
+    font-size: 20px;
+  }
+
+  .mood-page__options {
+    width: 100%;
+    max-width: 660px;
+    gap: 24px;
+  }
+
+  .mood-page__button {
+    height: 76px;
+    font-size: 24px;
+  }
+
+  .mood-page__joys {
+    padding: 30px 50px;
+  }
+
+  .mood-page--happy .mood-page__joys,
+  .mood-page--cozy .mood-page__joys,
+  .mood-page--rest .mood-page__joys,
+  .mood-page--excited .mood-page__joys {
+    margin: 0 -48px -44px;
+    padding: 24px 50px 28px;
+  }
+
+  .mood-page__happy-list li,
+  .mood-page__cozy-list li,
+  .mood-page__rest-list li,
+  .mood-page__excited-list li {
+    padding: 10px 40px;
+    font-size: 22px;
+  }
+
+  .mood-page__sticker {
+    max-width: 110px;
+  }
+
+  
+/* 태블릿 - 감정 버튼 주변 스티커 */
+
+.mood-page__happy-cake,
+.mood-page__cozy-candy,
+.mood-page__rest-cloud,
+.mood-page__excited-cherry {
+  top: 260px;
+  left: -15px;
+  width: 75px;
+}
+
+.mood-page__cozy-candy2 {
+  top: 350px;
+  left: -15px;
+  width: 65px;
+}
+
+.mood-page__happy-crown,
+.mood-page__cozy-heart,
+.mood-page__rest-flower,
+.mood-page__excited-coffee {
+  top: 260px;
+  right: -15px;
+  width: 65px;
+}
+
+.mood-page__happy-sun,
+.mood-page__cozy-flower,
+.mood-page__rest-eyemask,
+.mood-page__excited-diary {
+  top: -30px;
+  left: 20px;
+  width: 90px;
+}
+
+.mood-page__happy-ticket,
+.mood-page__cozy-ticket,
+.mood-page__rest-ticket,
+.mood-page__excited-ticket {
+  top: -15px;
+  right: -12px;
+  width: 100px;
+}
+.mood-page__happy-star {
+  top: 0;
+  right: 20%;
+  width: 35px;
+}
+.mood-page__sticker {
+  max-width: 110px;
+}
+}
+
+/* MOOD - Mobile */
+
+@media (max-width: 767px) {
+  .mood-page {
+    width: 100%;
+    padding: 32px 16px 28px;
+    border-radius: 20px;
+  }
+
+  .mood-page__eyebrow {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .mood-page h1 {
+    font-size: 29px;
+    letter-spacing: -1px;
+  }
+
+  .mood-page__description {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .mood-page__options {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+    margin: 30px auto 36px;
+  }
+
+  .mood-page__button {
+    gap: 8px;
+    height: 62px;
+    padding: 8px;
+    border-radius: 35px;
+    font-size: 16px;
+  }
+
+  .mood-page__button>.mood-page__icon {
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+  }
+
+  .mood-page__joys {
+    min-height: 180px;
+    padding: 28px 16px;
+    border-radius: 18px;
+  }
+
+  .mood-page__joys>h2 {
+    font-size: 18px;
+  }
+
+  .mood-page__placeholder {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .mood-page--happy .mood-page__joys,
+  .mood-page--cozy .mood-page__joys,
+  .mood-page--rest .mood-page__joys,
+  .mood-page--excited .mood-page__joys {
+    margin: 0 -8px -12px;
+    padding: 42px 16px 24px;
+    border-radius: 20px;
+  }
+
+  .mood-page__happy-description,
+  .mood-page__cozy-description,
+  .mood-page__rest-description,
+  .mood-page__excited-description {
+    font-size: 19px;
+    margin-bottom: 18px;
+  }
+
+  .mood-page__happy-list li,
+  .mood-page__cozy-list li,
+  .mood-page__rest-list li,
+  .mood-page__excited-list li {
+    gap: 12px;
+    min-height: 52px;
+    padding: 10px 14px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .mood-page__happy-list .mood-page__icon,
+  .mood-page__cozy-list .mood-page__icon,
+  .mood-page__rest-list .mood-page__icon,
+  .mood-page__excited-list .mood-page__icon {
+    flex-shrink: 0;
+    font-size: 26px;
+  }
+
+  .mood-page__sticker {
+    max-width: 65px;
+  }
+
+  .mood-page__sticker--star {
+    top: 10px;
+    left: 5px;
+  }
+
+  .mood-page__sticker--heart {
+    top: 12px;
+    right: 5px;
+  }
+
+  .mood-page__happy-cake,
+  .mood-page__cozy-candy,
+  .mood-page__cozy-candy2,
+  .mood-page__rest-cloud,
+  .mood-page__excited-cherry {
+    top: 200px;
+    left: -12px;
+    max-width: 50px;
+  }
+
+  .mood-page__happy-crown,
+  .mood-page__cozy-heart,
+  .mood-page__rest-flower,
+  .mood-page__excited-coffee {
+    top: 200px;
+    right: -12px;
+    max-width: 42px;
+  }
+
+
+  
+.mood-page__happy-sun,
+.mood-page__cozy-flower,
+.mood-page__rest-eyemask,
+.mood-page__excited-diary {
+  top: -18px;
+  left: 4px;
+  max-width: 50px;
+}
+
+.mood-page__happy-ticket,
+.mood-page__cozy-ticket,
+.mood-page__rest-ticket,
+.mood-page__excited-ticket {
+  top: -10px;
+  right: -8px;
+  max-width: 60px;
+}
+
+.mood-page__happy-star {
+  top: -10px;
+  right: 22%;
+  max-width: 32px;
+}
+
 }

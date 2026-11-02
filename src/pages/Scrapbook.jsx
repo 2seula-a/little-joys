@@ -1,20 +1,52 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useScraps from '../hooks/useScraps.js'
 import './Scrapbook.css'
 
 function Scrapbook() {
   const { scraps, toggleScrap } = useScraps()
+
   const [page, setPage] = useState(0)
-  const pageCount = Math.ceil(scraps.length / 3)
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia('(max-width: 767px)').matches
+  )
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+
+    function handleChange(event) {
+      setIsMobile(event.matches)
+      setPage(0)
+    }
+
+    media.addEventListener('change', handleChange)
+
+    return () => {
+      media.removeEventListener('change', handleChange)
+    }
+  }, [])
+
+  const pageSize = isMobile ? 4 : 3
+  const pageCount = Math.ceil(scraps.length / pageSize)
   const currentPage = Math.min(page, Math.max(0, pageCount - 1))
-  const visibleScraps = scraps.slice(currentPage * 3, currentPage * 3 + 3)
+  const visibleScraps = scraps.slice(
+    currentPage * pageSize,
+    currentPage * pageSize + pageSize
+  )
   const isEmpty = scraps.length === 0
 
+
+
   function removeScrap(scrap) {
-    setPage(Math.min(currentPage, Math.max(0, Math.ceil((scraps.length - 1) / 3) - 1)))
+    setPage(
+      Math.min(
+        currentPage,
+        Math.max(0, Math.ceil((scraps.length - 1) / pageSize) - 1)
+      )
+    )
     toggleScrap(scrap)
   }
+
 
   return (
     <section className={`scrapbook-page${isEmpty ? ' scrapbook-page--empty' : ''}`} aria-labelledby="scrapbook-title">
@@ -25,6 +57,20 @@ function Scrapbook() {
             <h2>아직 모아둔 행복이 없어요.</h2>
             <p>오늘의 작은 행복을 발견하고 스크랩해보세요.</p>
           </div>
+
+          <div className="scrapbook-page__empty-copy" aria-hidden="true">
+            <img
+              className="scrapbook-page__empty-copy1"
+              src={`${import.meta.env.BASE_URL}images/scrapbook/scr-t1.svg`}
+              alt=""
+            />
+            <img
+              className="scrapbook-page__empty-copy2"
+              src={`${import.meta.env.BASE_URL}images/scrapbook/scr-t2.svg`}
+              alt=""
+            />
+          </div>
+
           <Link className="scrapbook-page__find" to="/today">
             <span className="scrapbook-page__accessible-copy">행복 찾으러 가기 ✨</span>
           </Link>

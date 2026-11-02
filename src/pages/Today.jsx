@@ -9,16 +9,16 @@ function Today() {
   const saved = result ? scraps.some((scrap) => scrap.id === result.id) : false
 
   useEffect(() => {
-  function resetToday() {
-    setResult(null)
-  }
+    function resetToday() {
+      setResult(null)
+    }
 
-  window.addEventListener('reset-today', resetToday)
+    window.addEventListener('reset-today', resetToday)
 
-  return () => {
-    window.removeEventListener('reset-today', resetToday)
-  }
-}, [])
+    return () => {
+      window.removeEventListener('reset-today', resetToday)
+    }
+  }, [])
 
   function drawJoy() {
     setResult(drawTodayJoy(result?.id))
@@ -26,33 +26,75 @@ function Today() {
 
   return (
     <section className={`today-page${result ? ' today-page--result' : ''}`} aria-labelledby="today-title">
+
       <div className="today-page__accessible-copy">
         {result ? (
           <>
-            <h1 id="today-title">오늘의 행복 결과</h1>
-            <p>오늘, 당신을 위한 작은 행복이 도착했어요!</p>
+            <p className="today-page__eyebrow">
+              TODAY'S LITTLE SURPRISE
+            </p>
+            <h1 id="today-title">
+              오늘의 <span>행복</span> 결과
+            </h1>
+            <p className="today-page__description">
+              오늘, 당신을 위한 작은 행복이 도착했어요!
+            </p>
           </>
         ) : (
           <>
-        <p>TODAY'S LITTLE SURPRISE</p>
-        <h1 id="today-title">오늘은 어떤 행복이 기다릴까?</h1>
-        <p>하루를 반짝이게 할 작은 행복을 뽑아보세요.</p>
-        <p>오늘의 행복 카드 ♡</p>
-        <p>어떤 행복이 숨어 있을까요?</p>
+            <p className="today-page__eyebrow">
+              TODAY'S LITTLE SURPRISE
+            </p>
+            <h1 id="today-title">
+              오늘은 어떤 <span>행복</span>이<br />
+              기다릴까?
+            </h1>
+            <p className="today-page__description">
+              하루를 반짝이게 할 작은 행복을 뽑아보세요.
+            </p>
           </>
         )}
       </div>
+
+
+      {!result && (
+        <p className="today-page__letter-text">
+          A LITTLE JOY
+          <span>FOR YOU</span>
+          <span className="today-page__letter-heart">♡</span>
+        </p>
+      )}
+
+      <div className="today-page__card-guide">
+        {result ? (
+          <>
+            <p>오늘의 행복 카드 ♡</p>
+            <p>당신의 작은 행복을 간직해 보세요.</p>
+          </>
+        ) : (
+          <>
+            <p>오늘의 행복 카드 ♡</p>
+            <p>어떤 행복이 숨어 있을까요?</p>
+          </>
+        )}
+      </div>
+
       <div aria-live="polite" aria-atomic="true">
         {result && (
-          <>
           <figure className="today-page__result-card">
             <img src={result.image} alt="" />
             <figcaption>{result.title}</figcaption>
           </figure>
-          <img className="today-page__tape" src={`${import.meta.env.BASE_URL}images/today/tape.png`} alt="" aria-hidden="true" />
-          </>
         )}
+
+        <img
+          className="today-page__tape"
+          src={`${import.meta.env.BASE_URL}images/today/tape.png`}
+          alt=""
+          aria-hidden="true"
+        />
       </div>
+
       {result && (
         <button
           className="today-page__scrap"
