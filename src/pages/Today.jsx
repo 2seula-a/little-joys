@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { drawTodayJoy } from '../data/todayJoys.js'
 import useScraps from '../hooks/useScraps.js'
@@ -79,6 +80,15 @@ function Today() {
         )}
       </div>
 
+      {result && (
+        <img
+          className="today-page__pc-guide"
+          src={`${import.meta.env.BASE_URL}images/today/Frame628-TODAY-PC.svg`}
+          alt=""
+          aria-hidden="true"
+        />
+      )}
+
       <div aria-live="polite" aria-atomic="true">
         {result && (
           <figure className="today-page__result-card">
@@ -113,6 +123,19 @@ function Today() {
         <span>{result ? '다른 행복 찾기' : '행복 뽑기'}</span>
         <span aria-hidden="true">✨</span>
       </button>
+
+      {result && saved && (
+        <Link
+          to="/scrapbook"
+          className="today-page__scrapbook-link"
+          aria-label="스크랩북 보러가기"
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}images/today/scrp-bt-pc.svg`}
+            alt=""
+          />
+        </Link>
+      )}
       <p className="today-page__accessible-copy">{result ? '또 다른 작은 행복이 기다리고 있어요.' : '작은 행복은 예상치 못한 순간에 찾아오기도 해요.'}</p>
     </section>
   )

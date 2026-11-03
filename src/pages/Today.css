@@ -1,3 +1,6 @@
+/* ========================================
+   TODAY · 공통 스타일
+======================================== */
 .site-layout:has(.today-page) {
   position: relative;
   padding-top: 0;
@@ -21,24 +24,6 @@
   aspect-ratio: 1440 / 1024;
   margin: 0 auto;
   background: url('/images/today/today-default-1.png') center / contain no-repeat;
-}
-
-.today-page::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6.666667cqw;
-  background-image: url('/images/today/today-default-1.png');
-  background-position: center top;
-  background-size: 100% 5120%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-.today-page::before {
-  display: none;
 }
 
 .today-page__draw {
@@ -79,11 +64,7 @@
 }
 
 .today-page--result {
-  background-image: url('/little-joys/images/today/today-result-new-1.png');
-}
-
-.today-page--result::before {
-  background-image: url('/little-joys/images/today/today-result-new-1.png');
+  background-image: url('/little-joys/images/today/TODAY-PC.svg');
 }
 
 .today-page__tape {
@@ -179,26 +160,325 @@
   border: 0;
 }
 
-.today-page__draw>span {
+.today-page__draw > span {
   visibility: hidden;
 }
+
+/* DESKTOP · 1025px 이상 */
+@media (min-width: 1025px) {
+  .today-page__letter-text,
+  .today-page__card-guide {
+    display: none;
+  }
+
+  .today-page:not(.today-page--result) .today-page__tape {
+    display: none;
+  }
+
+.today-page--result .today-page__pc-guide {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 70%;
+    width: 26.388889%;
+    height: auto;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .today-page--result .today-page__draw {
+    left: 50%;
+    top: 79%;
+    width: 17.638889%;
+    height: 7.03125%;
+    transform: translateX(-50%);
+    background: #e7719c;
+    border: 2px solid #c8a4ed;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 1.527778cqw;
+    box-shadow: none;
+  }
+
+  .today-page--result .today-page__draw > span {
+    visibility: visible;
+  }
+
+  .today-page--result .today-page__scrapbook-link {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 88%;
+    width: 17.361111%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .today-page--result .today-page__scrapbook-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .today-page--result > .today-page__accessible-copy:last-child {
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    width: 80%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    transform: translateX(-50%);
+    color: #765b93;
+    font-size: 1.527778cqw;
+    text-align: center;
+  }
+
+  .today-page__scrapbook-link:focus-visible {
+    outline: 3px solid #765b93;
+    outline-offset: 4px;
+  }
+}
+
+/* TABLET · 768–1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+.today-page {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+    background-image: url('/little-joys/images/today/today-default-t.png');
+    background-position: center top;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .today-page--result {
+    background-image: url('/little-joys/images/today/today-result-t.png');
+  }
+
+  
+/* TODAY - Tablet 제목 및 설명 */
+
+.today-page > .today-page__accessible-copy:first-child {
+  position: absolute;
+  z-index: 2;
+  top: 13%;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  text-align: center;
+  color: #70548c;
+}
+
+.today-page__eyebrow {
+  margin: 0 0 12px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.today-page > .today-page__accessible-copy h1 {
+  margin: 0;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -1px;
+  word-break: keep-all;
+}
+
+.today-page > .today-page__accessible-copy h1 span {
+  color: #e66c9c;
+}
+
+.today-page__description {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* 태블릿 편지지 문구 */
+
+.today-page__letter-text {
+  position: absolute;
+  z-index: 2;
+  top: 44%;
+  left: 50%;
+  width: 35%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  color: #70548c;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 22px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.today-page__letter-text span {
+  display: block;
+}
+
+.today-page__letter-heart {
+  margin-top: 6px;
+  font-size: 25px;
+}
+
+/* 태블릿 버튼 위 안내 문구 */
+
+.today-page__card-guide {
+  position: absolute;
+  z-index: 2;
+  top: 63%;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%);
+  color: #70548c;
+  text-align: center;
+}
+
+.today-page__card-guide p {
+  margin: 0;
+}
+
+.today-page__card-guide p:first-child {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.today-page__card-guide p:last-child {
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* 태블릿 기본·결과 버튼 */
 
 .today-page .today-page__draw,
 .today-page--result .today-page__draw {
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  color: transparent;
+  left: 50%;
+  top: 76%;
+  width: 220px;
+  height: auto;
+  aspect-ratio: 254 / 72;
+  padding: 0;
+  transform: translateX(-50%);
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.today-page__draw>span {
-  visibility: hidden;
+.today-page .today-page__draw {
+  background-image: url('/little-joys/images/today/default-bt.png');
 }
 
+.today-page--result .today-page__draw {
+  background-image: url('/little-joys/images/today/result-bt.png');
+}
 
-/* TODAY - Mobile */
+/* 태블릿 버튼 아래 문구 */
+
+.today-page > .today-page__accessible-copy:last-child {
+  position: absolute;
+  z-index: 2;
+  top: 84%;
+  left: 50%;
+  width: 85%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  transform: translateX(-50%);
+  color: #70548c;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  word-break: keep-all;
+}
+.today-page .today-page__tape {
+  display: none;
+}
+
+/* 태블릿 - 결과 화면 폴라로이드 */
+.today-page--result .today-page__result-card {
+  top: 34%;
+  width: 19%;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.today-page--result .today-page__result-card > img {
+  width: 85%;
+}
+
+.today-page--result .today-page__result-card figcaption {
+  margin-top: 8px;
+  padding: 0 5px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+/* 태블릿 - 결과 화면 버튼 */
+
+.today-page--result .today-page__draw {
+  top: 73%;
+}
+
+/* 태블릿 - 결과 화면 버튼 아래 문구 */
+
+/* 태블릿 결과 - 스크랩 버튼 오른쪽 이동 */
+.today-page--result .today-page__scrap {
+  left: 66%;
+}
+
+/* 태블릿 결과 - 행복 카드 안내 문구 아래로 이동 */
+.today-page--result .today-page__card-guide {
+  top: 66%;
+}
+
+  .today-page__pc-guide {
+    display: none;
+  }
+
+  .today-page--result .today-page__scrapbook-link {
+    position: absolute;
+    display: block;
+    z-index: 3;
+    left: 50%;
+    top: 80%;
+    width: 200px;
+    transform: translateX(-50%);
+  }
+
+  .today-page--result .today-page__scrapbook-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  
+
+  /* 결과 화면 아래 안내 문구 */
+  .today-page--result > .today-page__accessible-copy:last-child {
+    top: 85%;
+  }
+}
+
+/* MOBILE · 767px 이하 */
 @media (max-width: 767px) {
-  .today-page {
+.today-page {
     width: 100%;
     aspect-ratio: 9 / 16;
     min-height: 100dvh;
@@ -411,23 +691,6 @@
     width: 85%;
   }
 
-}
-
-
-/* PC 및 태블릿 - 추가 문구 숨김 */
-@media (min-width: 1025px) {
-  .today-page__letter-text,
-  .today-page__card-guide {
-    display: none;
-  }
-
-  .today-page:not(.today-page--result) .today-page__tape {
-    display: none;
-  }
-}
-
-/* 모바일 - 기본 화면 테이프 */
-@media (max-width: 767px) {
   .today-page:not(.today-page--result) .today-page__tape {
     display: block;
     left: 44%;
@@ -435,219 +698,27 @@
     width: 16%;
   }
 
-  .today-page--result .today-page__card-guide {
-    top: 74%;
+  .today-page__pc-guide {
+    display: none;
+  }
+
+  .today-page--result .today-page__scrapbook-link {
+    position: absolute;
+    display: block;
+    z-index: 3;
     left: 50%;
-    width: 85%;
+    top: 90%;
+    width: min(45%, 170px);
+    transform: translateX(-50%);
   }
-}
 
-/* TODAY - Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .today-page {
+  .today-page--result .today-page__scrapbook-link img {
+    display: block;
     width: 100%;
-    aspect-ratio: 3 / 4;
-    min-height: 0;
-    background-image: url('/little-joys/images/today/today-default-t.png');
-    background-position: center top;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    height: auto;
   }
 
-  .today-page--result {
-    background-image: url('/little-joys/images/today/today-result-t.png');
+  .today-page--result > .today-page__accessible-copy:last-child {
+    top: 94%;
   }
-
-  
-/* TODAY - Tablet 제목 및 설명 */
-
-.today-page > .today-page__accessible-copy:first-child {
-  position: absolute;
-  z-index: 2;
-  top: 13%;
-  left: 10%;
-  width: 80%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  clip-path: none;
-  white-space: normal;
-  text-align: center;
-  color: #70548c;
-}
-
-.today-page__eyebrow {
-  margin: 0 0 12px;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.today-page > .today-page__accessible-copy h1 {
-  margin: 0;
-  font-size: 35px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -1px;
-  word-break: keep-all;
-}
-
-.today-page > .today-page__accessible-copy h1 span {
-  color: #e66c9c;
-}
-
-.today-page__description {
-  margin: 14px 0 0;
-  font-size: 17px;
-  line-height: 1.5;
-  word-break: keep-all;
-}
-
-/* 태블릿 편지지 문구 */
-
-.today-page__letter-text {
-  position: absolute;
-  z-index: 2;
-  top: 44%;
-  left: 50%;
-  width: 35%;
-  margin: 0;
-  transform: translate(-50%, -50%);
-  color: #70548c;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 22px;
-  line-height: 1.35;
-  text-align: center;
-}
-
-.today-page__letter-text span {
-  display: block;
-}
-
-.today-page__letter-heart {
-  margin-top: 6px;
-  font-size: 25px;
-}
-
-/* 태블릿 버튼 위 안내 문구 */
-
-.today-page__card-guide {
-  position: absolute;
-  z-index: 2;
-  top: 63%;
-  left: 50%;
-  width: 80%;
-  transform: translateX(-50%);
-  color: #70548c;
-  text-align: center;
-}
-
-.today-page__card-guide p {
-  margin: 0;
-}
-
-.today-page__card-guide p:first-child {
-  font-size: 23px;
-  font-weight: 700;
-}
-
-.today-page__card-guide p:last-child {
-  margin-top: 8px;
-  font-size: 15px;
-}
-
-/* 태블릿 기본·결과 버튼 */
-
-.today-page .today-page__draw,
-.today-page--result .today-page__draw {
-  left: 50%;
-  top: 76%;
-  width: 220px;
-  height: auto;
-  aspect-ratio: 254 / 72;
-  padding: 0;
-  transform: translateX(-50%);
-  background-color: transparent;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.today-page .today-page__draw {
-  background-image: url('/little-joys/images/today/default-bt.png');
-}
-
-.today-page--result .today-page__draw {
-  background-image: url('/little-joys/images/today/result-bt.png');
-}
-
-/* 태블릿 버튼 아래 문구 */
-
-.today-page > .today-page__accessible-copy:last-child {
-  position: absolute;
-  z-index: 2;
-  top: 84%;
-  left: 50%;
-  width: 85%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  clip-path: none;
-  white-space: normal;
-  transform: translateX(-50%);
-  color: #70548c;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: center;
-  word-break: keep-all;
-}
-.today-page .today-page__tape {
-  display: none;
-}
-
-/* 태블릿 - 결과 화면 폴라로이드 */
-.today-page--result .today-page__result-card {
-  top: 34%;
-  width: 19%;
-  padding-top: 12px;
-  padding-bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.today-page--result .today-page__result-card > img {
-  width: 85%;
-}
-
-.today-page--result .today-page__result-card figcaption {
-  margin-top: 8px;
-  padding: 0 5px;
-  font-size: 13px;
-  line-height: 1.3;
-}
-
-/* 태블릿 - 결과 화면 버튼 */
-
-.today-page--result .today-page__draw {
-  top: 76%;
-}
-
-/* 태블릿 - 결과 화면 버튼 아래 문구 */
-
-.today-page--res
-ult > .today-page__accessible-copy:last-child {
-  top: 85%;
-}
-/* 태블릿 결과 - 스크랩 버튼 오른쪽 이동 */
-.today-page--result .today-page__scrap {
-  left: 66%;
-}
-
-/* 태블릿 결과 - 행복 카드 안내 문구 아래로 이동 */
-.today-page--result .today-page__card-guide {
-  top: 66%;
-}
 }
