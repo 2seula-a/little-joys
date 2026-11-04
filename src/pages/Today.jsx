@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { drawTodayJoy } from '../data/todayJoys.js'
@@ -26,8 +27,10 @@ function Today() {
   }
 
   return (
-    <section className={`today-page${result ? ' today-page--result' : ''}`} aria-labelledby="today-title">
-
+    <section
+      className={`today-page${result ? ' today-page--result' : ''}`}
+      aria-labelledby="today-title"
+    >
       <div className="today-page__accessible-copy">
         {result ? (
           <>
@@ -38,7 +41,7 @@ function Today() {
               오늘의 <span>행복</span> 결과
             </h1>
             <p className="today-page__description">
-              오늘, 당신을 위한 작은 행복이 도착했어요!
+              당신을 위한 작은 행복이 도착했어요!
             </p>
           </>
         ) : (
@@ -47,16 +50,24 @@ function Today() {
               TODAY'S LITTLE SURPRISE
             </p>
             <h1 id="today-title">
-              오늘은 어떤 <span>행복</span>이<br />
-              기다릴까?
+              오늘은 어떤 <span>행복</span>이 기다릴까?
             </h1>
             <p className="today-page__description">
-              하루를 반짝이게 할 작은 행복을 뽑아보세요.
+              행복 뽑기 버튼을 눌러 오늘의 작은 행복을 만나보세요.
             </p>
           </>
         )}
       </div>
 
+      <div className="today-page__petals" aria-hidden="true">
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+        <span className="today-page__petal"></span>
+      </div>
 
       {!result && (
         <p className="today-page__letter-text">
@@ -70,7 +81,7 @@ function Today() {
         {result ? (
           <>
             <p>오늘의 행복 카드 ♡</p>
-            <p>당신의 작은 행복을 간직해 보세요.</p>
+            <p>마음에 드는 행복은 스크랩하고, 다른 행복도 만나보세요.</p>
           </>
         ) : (
           <>
@@ -79,15 +90,6 @@ function Today() {
           </>
         )}
       </div>
-
-      {result && (
-        <img
-          className="today-page__pc-guide"
-          src={`${import.meta.env.BASE_URL}images/today/Frame628-TODAY-PC.svg`}
-          alt=""
-          aria-hidden="true"
-        />
-      )}
 
       <div aria-live="polite" aria-atomic="true">
         {result && (
@@ -119,7 +121,12 @@ function Today() {
           />
         </button>
       )}
-      <button className="today-page__draw" type="button" onClick={drawJoy}>
+
+      <button
+        className="today-page__draw"
+        type="button"
+        onClick={drawJoy}
+      >
         <span>{result ? '다른 행복 찾기' : '행복 뽑기'}</span>
         <span aria-hidden="true">✨</span>
       </button>
@@ -136,7 +143,12 @@ function Today() {
           />
         </Link>
       )}
-      <p className="today-page__accessible-copy">{result ? '또 다른 작은 행복이 기다리고 있어요.' : '작은 행복은 예상치 못한 순간에 찾아오기도 해요.'}</p>
+
+      <p className="today-page__accessible-copy">
+        {result
+          ? '마음에 드는 행복은 스크랩하고, 다른 행복도 만나보세요.'
+          : '어떤 행복이 기다리고 있을까요? 버튼을 눌러 확인해 보세요.'}
+      </p>
     </section>
   )
 }

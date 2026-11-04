@@ -631,8 +631,6 @@
     right: -12px;
     max-width: 42px;
   }
-
-
   
 .mood-page__happy-sun,
 .mood-page__cozy-flower,
@@ -658,4 +656,193 @@
   max-width: 32px;
 }
 
+/* 모바일 기존 별 장식 절반으로 줄이기 */
+.mood-page__stars .mood-page__star:nth-child(even) {
+  display: none;
+}
+
+}
+
+/* 데스크탑 양옆 반짝이 */
+
+/* MOOD - 키치한 별빛 반짝이 */
+.mood-page__floating-sparkles {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(0px, calc((100vw - 1100px) / 2 - 20px));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mood-page__floating-sparkles--left {
+  right: 100%;
+}
+
+.mood-page__floating-sparkles--right {
+  left: 100%;
+}
+
+/* 별빛 기본 */
+.mood-page__floating-sparkles span {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fffdf5;
+  box-shadow:
+    0 0 8px 3px #ffffff,
+    0 0 18px 7px #f8c9ef;
+  animation: kitschTwinkle 3.6s ease-in-out infinite;
+}
+
+/* 세로 빛줄기 */
+.mood-page__floating-sparkles span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #ffffff,
+    transparent
+  );
+  transform: translate(-50%, -50%);
+}
+
+/* 가로 빛줄기 */
+.mood-page__floating-sparkles span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 3px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #ffffff,
+    transparent
+  );
+  transform: translate(-50%, -50%);
+}
+
+/* 별빛 색상 변화 */
+.mood-page__floating-sparkles span:nth-child(3n + 1) {
+  background: #fff3ba;
+  box-shadow:
+    0 0 9px 3px #fff7d5,
+    0 0 20px 8px #ffe3ac;
+}
+
+.mood-page__floating-sparkles span:nth-child(3n + 2) {
+  background: #f7dcff;
+  box-shadow:
+    0 0 9px 3px #ffffff,
+    0 0 20px 8px #dfc7ff;
+}
+
+/* 왼쪽 별빛 위치 */
+.mood-page__floating-sparkles--left span:nth-child(1) {
+  left: 30%;
+  top: 15%;
+  animation-delay: 0s;
+}
+
+.mood-page__floating-sparkles--left span:nth-child(2) {
+  left: 70%;
+  top: 32%;
+  animation-delay: 1.2s;
+}
+
+.mood-page__floating-sparkles--left span:nth-child(3) {
+  left: 20%;
+  top: 48%;
+  animation-delay: 2.1s;
+}
+
+.mood-page__floating-sparkles--left span:nth-child(4) {
+  left: 65%;
+  top: 65%;
+  animation-delay: 0.8s;
+}
+
+.mood-page__floating-sparkles--left span:nth-child(5) {
+  left: 35%;
+  top: 83%;
+  animation-delay: 2.7s;
+}
+
+/* 오른쪽 별빛 위치 */
+.mood-page__floating-sparkles--right span:nth-child(1) {
+  right: 35%;
+  top: 19%;
+  animation-delay: 1.6s;
+}
+
+.mood-page__floating-sparkles--right span:nth-child(2) {
+  right: 70%;
+  top: 37%;
+  animation-delay: 0.4s;
+}
+
+.mood-page__floating-sparkles--right span:nth-child(3) {
+  right: 20%;
+  top: 53%;
+  animation-delay: 2.5s;
+}
+
+.mood-page__floating-sparkles--right span:nth-child(4) {
+  right: 65%;
+  top: 70%;
+  animation-delay: 1.1s;
+}
+
+.mood-page__floating-sparkles--right span:nth-child(5) {
+  right: 30%;
+  top: 85%;
+  animation-delay: 3s;
+}
+
+/* 별빛 반짝임 */
+@keyframes kitschTwinkle {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.3) rotate(-15deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.2) rotate(0deg);
+  }
+
+  55% {
+    opacity: 0.8;
+    transform: scale(0.85) rotate(12deg);
+  }
+
+  75% {
+    opacity: 0.2;
+    transform: scale(0.4) rotate(20deg);
+  }
+}
+
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .mood-page__floating-sparkles span {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mood-page__floating-sparkles {
+    display: none;
+  }
 }

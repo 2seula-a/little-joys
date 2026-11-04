@@ -1,5 +1,5 @@
 /* ========================================
-   TODAY · 공통 스타일
+TODAY · 공통 스타일
 ======================================== */
 .site-layout:has(.today-page) {
   position: relative;
@@ -24,15 +24,16 @@
   aspect-ratio: 1440 / 1024;
   margin: 0 auto;
   background: url('/images/today/today-default-1.png') center / contain no-repeat;
+  overflow: hidden;
 }
 
 .today-page__draw {
   position: absolute;
   display: block;
-  left: 27.5%;
-  top: 83.300781%;
-  width: 39%;
-  height: 7.03125%;
+  left: 50%;
+  top: 80%;
+  width: 18%;
+  height: 7%;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -41,6 +42,7 @@
   box-shadow: none;
   cursor: pointer;
   z-index: 2;
+  transform: translateX(-50%);
 }
 
 .today-page__draw:focus-visible,
@@ -164,10 +166,204 @@
   visibility: hidden;
 }
 
+/* ========================================
+TODAY · 꽃잎 효과 (공통)
+======================================== */
+.today-page__petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.today-page__petal {
+  position: absolute;
+  top: -12%;
+  width: 18px;
+  height: 18px;
+  background: url('/little-joys/images/today/petal-1.png')
+  center / contain no-repeat;
+  opacity: 0;
+  filter: drop-shadow(0 2px 3px rgb(244 176 203 / 20%));
+  scale: 2.5;
+}
+
+.today-page__petal:nth-child(even) {
+  background-image: url('/little-joys/images/today/petal-2.png');
+}
+
+/* 위치 + 속도 */
+.today-page__petal:nth-child(1) {
+  left: 8%;
+  animation: todayPetalFallA 12s linear infinite;
+  animation-delay: 0s;
+}
+
+.today-page__petal:nth-child(2) {
+  left: 22%;
+  animation: todayPetalFallB 15s linear infinite;
+  animation-delay: -4s;
+}
+
+.today-page__petal:nth-child(3) {
+  left: 36%;
+  animation: todayPetalFallA 13.5s linear infinite;
+  animation-delay: -8s;
+}
+
+.today-page__petal:nth-child(4) {
+  left: 55%;
+  animation: todayPetalFallB 14s linear infinite;
+  animation-delay: -2s;
+}
+
+.today-page__petal:nth-child(5) {
+  left: 70%;
+  animation: todayPetalFallA 16s linear infinite;
+  animation-delay: -6s;
+}
+
+.today-page__petal:nth-child(6) {
+  left: 84%;
+  animation: todayPetalFallB 12.5s linear infinite;
+  animation-delay: -9s;
+}
+
+.today-page__petal:nth-child(7) {
+  left: 92%;
+  animation: todayPetalFallA 15s linear infinite;
+  animation-delay: -11s;
+}
+
+/* 살짝 크기 다르게 */
+.today-page__petal:nth-child(2),
+.today-page__petal:nth-child(5) {
+  width: 15px;
+  height: 10px;
+}
+
+.today-page__petal:nth-child(3),
+.today-page__petal:nth-child(6) {
+  width: 20px;
+  height: 13px;
+}
+
+/* 꽃잎 움직임 */
+@keyframes todayPetalFallA {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.72;
+  }
+  45% {
+    transform: translate3d(22px, 42vh, 0) rotate(120deg);
+    opacity: 0.82;
+  }
+  75% {
+    transform: translate3d(-18px, 78vh, 0) rotate(220deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(14px, 112vh, 0) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes todayPetalFallB {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(18deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.68;
+  }
+  40% {
+    transform: translate3d(-24px, 38vh, 0) rotate(110deg);
+    opacity: 0.8;
+  }
+  70% {
+    transform: translate3d(20px, 74vh, 0) rotate(230deg);
+    opacity: 0.52;
+  }
+  100% {
+    transform: translate3d(-16px, 112vh, 0) rotate(340deg);
+    opacity: 0;
+  }
+}
+
 /* DESKTOP · 1025px 이상 */
 @media (min-width: 1025px) {
-  .today-page__letter-text,
+
+  /* PC 제목 및 설명 */
+  .today-page > .today-page__accessible-copy:first-child {
+    position: absolute;
+    z-index: 2;
+    top: 11.5%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    text-align: center;
+    color: #70548c;
+  }
+
+  .today-page__eyebrow {
+    margin: 0 0 12px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 1.4cqw;
+    font-weight: 700;
+  }
+
+  .today-page > .today-page__accessible-copy h1 {
+    margin: 0;
+    font-size: 3cqw;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .today-page > .today-page__accessible-copy h1 span {
+    color: #e66c9c;
+  }
+
+  .today-page__description {
+    margin: 12px 0 0;
+    font-size: 1.2cqw;
+    line-height: 1.5;
+  }
+
+  /* PC 행복 카드 안내 */
   .today-page__card-guide {
+    position: absolute;
+    z-index: 2;
+    top: 71%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    color: #70548c;
+    text-align: center;
+  }
+
+  .today-page__card-guide p {
+    margin: 0;
+  }
+
+  .today-page__card-guide p:first-child {
+    font-size: 1.7cqw;
+    font-weight: 700;
+  }
+
+  .today-page__card-guide p:last-child {
+    margin-top: 8px;
+    font-size: 1.1cqw;
+  }
+
+  .today-page__letter-text {
     display: none;
   }
 
@@ -175,40 +371,24 @@
     display: none;
   }
 
-.today-page--result .today-page__pc-guide {
-    position: absolute;
-    display: block;
-    left: 50%;
-    top: 70%;
-    width: 26.388889%;
-    height: auto;
-    transform: translateX(-50%);
-    pointer-events: none;
-  }
-
   .today-page--result .today-page__draw {
     left: 50%;
-    top: 79%;
+    top: 80%;
     width: 17.638889%;
     height: 7.03125%;
     transform: translateX(-50%);
-    background: #e7719c;
-    border: 2px solid #c8a4ed;
+    background: transparent;
+    border: 0;
     border-radius: 999px;
-    color: #fff;
+    color: transparent;
     font-size: 1.527778cqw;
     box-shadow: none;
   }
-
-  .today-page--result .today-page__draw > span {
-    visibility: visible;
-  }
-
   .today-page--result .today-page__scrapbook-link {
     position: absolute;
     display: block;
     left: 50%;
-    top: 88%;
+    top: 90%;
     width: 17.361111%;
     transform: translateX(-50%);
     z-index: 3;
@@ -220,23 +400,6 @@
     height: auto;
   }
 
-  .today-page--result > .today-page__accessible-copy:last-child {
-    position: absolute;
-    top: 93%;
-    left: 50%;
-    width: 80%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    clip-path: none;
-    white-space: normal;
-    transform: translateX(-50%);
-    color: #765b93;
-    font-size: 1.527778cqw;
-    text-align: center;
-  }
-
   .today-page__scrapbook-link:focus-visible {
     outline: 3px solid #765b93;
     outline-offset: 4px;
@@ -245,7 +408,7 @@
 
 /* TABLET · 768–1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
-.today-page {
+  .today-page {
     width: 100%;
     aspect-ratio: 3 / 4;
     min-height: 0;
@@ -259,199 +422,164 @@
     background-image: url('/little-joys/images/today/today-result-t.png');
   }
 
-  
-/* TODAY - Tablet 제목 및 설명 */
+  /* TODAY - Tablet 제목 및 설명 */
 
-.today-page > .today-page__accessible-copy:first-child {
-  position: absolute;
-  z-index: 2;
-  top: 13%;
-  left: 10%;
-  width: 80%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  clip-path: none;
-  white-space: normal;
-  text-align: center;
-  color: #70548c;
-}
+  .today-page > .today-page__accessible-copy:first-child {
+    position: absolute;
+    z-index: 2;
+    top: 13%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    text-align: center;
+    color: #70548c;
+  }
 
-.today-page__eyebrow {
-  margin: 0 0 12px;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
+  .today-page__eyebrow {
+    margin: 0 0 12px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
 
-.today-page > .today-page__accessible-copy h1 {
-  margin: 0;
-  font-size: 35px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -1px;
-  word-break: keep-all;
-}
+  .today-page > .today-page__accessible-copy h1 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -1px;
+    word-break: keep-all;
+  }
 
-.today-page > .today-page__accessible-copy h1 span {
-  color: #e66c9c;
-}
+  .today-page > .today-page__accessible-copy h1 span {
+    color: #e66c9c;
+  }
 
-.today-page__description {
-  margin: 14px 0 0;
-  font-size: 17px;
-  line-height: 1.5;
-  word-break: keep-all;
-}
+  .today-page__description {
+    margin: 14px 0 0;
+    font-size: 17px;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
 
-/* 태블릿 편지지 문구 */
+  /* 태블릿 편지지 문구 */
 
-.today-page__letter-text {
-  position: absolute;
-  z-index: 2;
-  top: 44%;
-  left: 50%;
-  width: 35%;
-  margin: 0;
-  transform: translate(-50%, -50%);
-  color: #70548c;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 22px;
-  line-height: 1.35;
-  text-align: center;
-}
+  .today-page__letter-text {
+    position: absolute;
+    z-index: 2;
+    top: 44%;
+    left: 50%;
+    width: 35%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    color: #70548c;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 22px;
+    line-height: 1.35;
+    text-align: center;
+  }
 
-.today-page__letter-text span {
-  display: block;
-}
+  .today-page__letter-text span {
+    display: block;
+  }
 
-.today-page__letter-heart {
-  margin-top: 6px;
-  font-size: 25px;
-}
+  .today-page__letter-heart {
+    margin-top: 6px;
+    font-size: 25px;
+  }
 
-/* 태블릿 버튼 위 안내 문구 */
+  /* 태블릿 버튼 위 안내 문구 */
 
-.today-page__card-guide {
-  position: absolute;
-  z-index: 2;
-  top: 63%;
-  left: 50%;
-  width: 80%;
-  transform: translateX(-50%);
-  color: #70548c;
-  text-align: center;
-}
+  .today-page__card-guide {
+    position: absolute;
+    z-index: 2;
+    top: 63%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    color: #70548c;
+    text-align: center;
+  }
 
-.today-page__card-guide p {
-  margin: 0;
-}
+  .today-page__card-guide p {
+    margin: 0;
+  }
 
-.today-page__card-guide p:first-child {
-  font-size: 23px;
-  font-weight: 700;
-}
+  .today-page__card-guide p:first-child {
+    font-size: 23px;
+    font-weight: 700;
+  }
 
-.today-page__card-guide p:last-child {
-  margin-top: 8px;
-  font-size: 15px;
-}
+  .today-page__card-guide p:last-child {
+    margin-top: 8px;
+    font-size: 15px;
+  }
 
-/* 태블릿 기본·결과 버튼 */
+  /* 태블릿 기본·결과 버튼 */
 
-.today-page .today-page__draw,
-.today-page--result .today-page__draw {
-  left: 50%;
-  top: 76%;
-  width: 220px;
-  height: auto;
-  aspect-ratio: 254 / 72;
-  padding: 0;
-  transform: translateX(-50%);
-  background-color: transparent;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+  .today-page .today-page__draw,
+  .today-page--result .today-page__draw {
+    left: 50%;
+    top: 73%;
+    width: 220px;
+    height: auto;
+    aspect-ratio: 254 / 72;
+    padding: 0;
+    transform: translateX(-50%);
+    background-color: transparent;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-.today-page .today-page__draw {
-  background-image: url('/little-joys/images/today/default-bt.png');
-}
+  .today-page .today-page__draw {
+    background-image: url('/little-joys/images/today/default-bt.png');
+  }
 
-.today-page--result .today-page__draw {
-  background-image: url('/little-joys/images/today/result-bt.png');
-}
+  .today-page--result .today-page__draw {
+    background-image: url('/little-joys/images/today/result-bt.png');
+  }
 
-/* 태블릿 버튼 아래 문구 */
-
-.today-page > .today-page__accessible-copy:last-child {
-  position: absolute;
-  z-index: 2;
-  top: 84%;
-  left: 50%;
-  width: 85%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  clip-path: none;
-  white-space: normal;
-  transform: translateX(-50%);
-  color: #70548c;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: center;
-  word-break: keep-all;
-}
-.today-page .today-page__tape {
-  display: none;
-}
-
-/* 태블릿 - 결과 화면 폴라로이드 */
-.today-page--result .today-page__result-card {
-  top: 34%;
-  width: 19%;
-  padding-top: 12px;
-  padding-bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.today-page--result .today-page__result-card > img {
-  width: 85%;
-}
-
-.today-page--result .today-page__result-card figcaption {
-  margin-top: 8px;
-  padding: 0 5px;
-  font-size: 13px;
-  line-height: 1.3;
-}
-
-/* 태블릿 - 결과 화면 버튼 */
-
-.today-page--result .today-page__draw {
-  top: 73%;
-}
-
-/* 태블릿 - 결과 화면 버튼 아래 문구 */
-
-/* 태블릿 결과 - 스크랩 버튼 오른쪽 이동 */
-.today-page--result .today-page__scrap {
-  left: 66%;
-}
-
-/* 태블릿 결과 - 행복 카드 안내 문구 아래로 이동 */
-.today-page--result .today-page__card-guide {
-  top: 66%;
-}
-
-  .today-page__pc-guide {
+  .today-page .today-page__tape {
     display: none;
   }
 
+  /* 태블릿 - 결과 화면 폴라로이드 */
+  .today-page--result .today-page__result-card {
+    top: 34%;
+    width: 19%;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .today-page--result .today-page__result-card > img {
+    width: 85%;
+  }
+
+  .today-page--result .today-page__result-card figcaption {
+    margin-top: 8px;
+    padding: 0 5px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  /* 태블릿 결과 - 스크랩 버튼 오른쪽 이동 */
+  .today-page--result .today-page__scrap {
+    left: 66%;
+  }
+
+  /* 태블릿 결과 - 행복 카드 안내 문구 아래로 이동 */
+  .today-page--result .today-page__card-guide {
+    top: 66%;
+  }
   .today-page--result .today-page__scrapbook-link {
     position: absolute;
     display: block;
@@ -468,17 +596,20 @@
     height: auto;
   }
 
-  
+  /* 태블릿 꽃잎 크기 및 개수 */
+  .today-page__petal {
+    width: 16px;
+    height: 10px;
+  }
 
-  /* 결과 화면 아래 안내 문구 */
-  .today-page--result > .today-page__accessible-copy:last-child {
-    top: 85%;
+  .today-page__petal:nth-child(7) {
+    display: none;
   }
 }
 
 /* MOBILE · 767px 이하 */
 @media (max-width: 767px) {
-.today-page {
+  .today-page {
     width: 100%;
     aspect-ratio: 9 / 16;
     min-height: 100dvh;
@@ -491,7 +622,6 @@
   .today-page--result {
     background-image: url('/little-joys/images/today/today-result-mobile.png');
   }
-
 
   /* TODAY 모바일 버튼 */
 
@@ -660,27 +790,6 @@
     font-size: 12px;
   }
 
-  /* 버튼 아래 안내 문구 */
-  .today-page>.today-page__accessible-copy:last-child {
-    position: absolute;
-    z-index: 2;
-    top: 90%;
-    left: 50%;
-    width: 90%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    clip-path: none;
-    white-space: normal;
-    transform: translateX(-50%);
-    color: #70548c;
-    font-size: 11px;
-    line-height: 1.4;
-    text-align: center;
-    word-break: keep-all;
-  }
-
   .today-page--result>.today-page__accessible-copy:first-child {
     top: 18%;
   }
@@ -696,10 +805,6 @@
     left: 44%;
     top: 40%;
     width: 16%;
-  }
-
-  .today-page__pc-guide {
-    display: none;
   }
 
   .today-page--result .today-page__scrapbook-link {
@@ -718,7 +823,21 @@
     height: auto;
   }
 
-  .today-page--result > .today-page__accessible-copy:last-child {
-    top: 94%;
+  /* 모바일 꽃잎 크기 및 개수 */
+  .today-page__petal {
+    width: 13px;
+    height: 9px;
+  }
+
+  .today-page__petal:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+/* TODAY · 움직임 최소화 */
+@media (prefers-reduced-motion: reduce) {
+  .today-page__petal {
+    animation: none !important;
+    opacity: 0.35;
   }
 }

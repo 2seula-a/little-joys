@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from 'react-router-dom'
 import { moods } from '../data/moods.js'
 import useScraps from '../hooks/useScraps.js'
@@ -5,32 +6,21 @@ import './Home.css'
 
 const heroStars = [
   { left: 5.1, top: 18.5, size: 24, rotation: 12 },
-  { left: 11.7, top: 14.8, size: 40, rotation: -14, white: true },
   { left: 33.4, top: 12.8, size: 40, rotation: -12 },
-  { left: 35.5, top: 22.1, size: 25, rotation: -12 },
-  { left: 45.8, top: 20.3, size: 22, rotation: 10, white: true },
   { left: 67, top: 10, size: 26, rotation: -8, white: true },
-  { left: 73.4, top: 22.1, size: 24, rotation: 35 },
   { left: 89.2, top: 21.7, size: 39, rotation: 45 },
-  { left: 7.4, top: 40.2, size: 43, rotation: -10 },
-  { left: 10, top: 49.8, size: 24, rotation: -10 },
   { left: 22.1, top: 32.6, size: 27, rotation: -12 },
-  { left: 27.4, top: 45.2, size: 26, rotation: -10 },
-  { left: 39, top: 50.7, size: 28, rotation: -15 },
-  { left: 59, top: 50.7, size: 43, rotation: -12, white: true },
   { left: 68.9, top: 38.8, size: 40, rotation: 45 },
-  { left: 67.5, top: 51.1, size: 24, rotation: 45 },
+  { left: 10, top: 49.8, size: 24, rotation: -10 },
+  { left: 59, top: 50.7, size: 43, rotation: -12, white: true },
   { left: 85.1, top: 42.2, size: 26, rotation: 35 },
-  { left: 97.1, top: 75.6, size: 24, rotation: 45 },
-  { left: 78, top: 77.2, size: 25, rotation: 30 },
   { left: 27.4, top: 79.5, size: 26, rotation: -12 },
-  { left: 33.8, top: 84.9, size: 27, rotation: -10, white: true },
-  { left: 61.2, top: 87.4, size: 27, rotation: -12 },
+  { left: 78, top: 77.2, size: 25, rotation: 30 },
   { left: 21.7, top: 93.2, size: 42, rotation: -15 },
-  { left: 83, top: 91.8, size: 26, rotation: -12 },
 ]
 
 const BASE = import.meta.env.BASE_URL
+
 const joys = [
   { id: 'joy-flower', image: `${BASE}images/home/joy-flower.jpg`, title: '꽃이 있는 하루' },
   { id: 'joy-coffee', image: `${BASE}images/home/joy-coffee.jpg`, title: '맛있는 커피 한 잔' },
@@ -49,6 +39,12 @@ function Home() {
 
   return (
     <div className="home-page">
+      <div className="home-hero__sparkles" aria-hidden="true">
+        {Array.from({ length: 16 }, (_, index) => (
+          <span key={index} className="home-hero__sparkle" />
+        ))}
+      </div>
+
       <section className="home-hero" aria-labelledby="home-title">
         <figure className="home-polaroid home-polaroid--cake">
           <div className="home-polaroid__photo">
@@ -59,7 +55,9 @@ function Home() {
 
         <div className="home-hero__content">
           <p className="home-hero__eyebrow">COLLECT YOUR LITTLE MOMENTS</p>
-          <h1 id="home-title">오늘의 작은 행복을<br />발견해요</h1>
+          <h1 id="home-title">
+            오늘의 작은 행복을<br />발견해요
+          </h1>
           <p className="home-hero__description">
             평범한 일상 속, 특별한 순간들을 모아보세요.
           </p>
@@ -74,6 +72,7 @@ function Home() {
           </div>
           <figcaption>기분 전환 인테리어</figcaption>
         </figure>
+
         <div className="home-hero__stars" aria-hidden="true">
           {heroStars.map(({ left, top, size, rotation, white }, index) => (
             <span
@@ -93,8 +92,14 @@ function Home() {
       </section>
 
       <section className="mood-selector" aria-labelledby="mood-title">
-        <img className="mood-selector__decoration mood-selector__decoration--star" src={`${BASE}images/star.svg`} alt="" aria-hidden="true" />
+        <img
+          className="mood-selector__decoration mood-selector__decoration--star"
+          src={`${BASE}images/star.svg`}
+          alt=""
+          aria-hidden="true"
+        />
         <h2 id="mood-title">오늘은 어떤 기분인가요?</h2>
+
         <div className="mood-selector__options">
           {moods.map(({ type, icon, label, color }) => (
             <button
@@ -104,12 +109,20 @@ function Home() {
               style={{ '--mood-color': color }}
               onClick={() => selectMood(type)}
             >
-              <span className="mood-button__icon" aria-hidden="true">{icon}</span>
+              <span className="mood-button__icon" aria-hidden="true">
+                {icon}
+              </span>
               {label}
             </button>
           ))}
         </div>
-        <img className="mood-selector__decoration mood-selector__decoration--ice" src={`${BASE}images/ice.svg`} alt="" aria-hidden="true" />
+
+        <img
+          className="mood-selector__decoration mood-selector__decoration--ice"
+          src={`${BASE}images/ice.svg`}
+          alt=""
+          aria-hidden="true"
+        />
       </section>
 
       <section className="todays-joy" aria-labelledby="joy-title">
@@ -118,15 +131,19 @@ function Home() {
             <h2 id="joy-title">TODAY'S JOY</h2>
             <p>지금, 이런 행복은 어때요?</p>
           </div>
-          <Link to="/today">전체보기 <span aria-hidden="true">→</span></Link>
+          <Link to="/today">
+            전체보기 <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
         <div className="joy-grid">
           {joys.map(({ id, image, title }) => {
             const saved = scraps.some((scrap) => scrap.id === id)
+
             return (
               <article className="joy-card" key={id}>
                 <img src={image} alt="" />
+
                 <div className="joy-card__caption">
                   <h3>{title}</h3>
                   <button
@@ -155,6 +172,71 @@ function Home() {
               </article>
             )
           })}
+        </div>
+      </section>
+
+      <section className="home-video" aria-labelledby="home-video-title">
+        <div className="home-video__heading">
+          <p className="home-video__eyebrow">SECTION 01 · VIDEO</p>
+          <h2 id="home-video-title">A Little Moment of Joy</h2>
+          <p className="home-video__description">
+            잠시 멈춰 바라보면, 평범했던 하루에도 작은 행복이 숨어 있어요.
+          </p>
+        </div>
+
+        <div className="home-video__frame">
+          <video
+            className="home-video__player"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="구름과 꽃, 따뜻한 햇살을 담은 작은 행복 영상"
+          >
+            <source
+              src={`${BASE}videos/little-joys-home.mp4`}
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </section>
+
+      <section className="home-story" aria-labelledby="home-story-title">
+        <div className="home-story__heading">
+          <p className="home-story__eyebrow">
+            SECTION 02 · BRAND STORY
+          </p>
+
+          <h2 id="home-story-title">
+            작은 행복을 발견하고, 모으고, 기억해요.
+          </h2>
+
+          <p className="home-story__description">
+            LITTLE JOYS는 일상 속 작은 행복을 발견하고 기록하는
+            디지털 스크랩북입니다.
+            <br />
+            오늘의 기분을 선택하고, 나만의 행복을 찾아
+            소중한 순간들을 모아보세요.
+          </p>
+        </div>
+
+        <div className="home-story__grid">
+          {['Discover', 'Collect', 'Remember', 'Enjoy'].map((item) => (
+            <div className="home-story__item" key={item}>
+              <img
+                className="home-story__icon"
+                src={`${BASE}images/home/${item}.svg`}
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                className="home-story__text"
+                src={`${BASE}images/home/${item}-text.svg`}
+                alt={item}
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

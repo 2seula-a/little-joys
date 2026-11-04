@@ -2,11 +2,13 @@
   background: #fff7f5 url('/images/sky.png') center top / cover no-repeat;
 }
 
-.site-layout:has(.about-page) > .site-main {
+.site-layout:has(.about-page)>.site-main {
   padding: 0;
 }
 
 .about-page {
+  position: relative;
+  isolation: isolate;
   container-type: inline-size;
   padding-bottom: 0.694444vw;
 }
@@ -60,7 +62,7 @@
   margin: 0;
 }
 
-.about-page__story p + p {
+.about-page__story p+p {
   margin-top: 2.777778cqw;
 }
 
@@ -69,8 +71,8 @@
   font-size: inherit;
 }
 
-.about-page__how > div + div {
-  margin-top: 3.055556cqw;
+.about-page__how>div+div {
+  margin-top: 2cqw;
 }
 
 .about-page__rainbow,
@@ -87,29 +89,204 @@
 }
 
 .about-page__cloud {
-  width: 15.277778cqw;
+  width: 10.8cqw;
   height: auto;
-  top: 7cqw;
-  right: -2cqw;
+  top: 1.8cqw;
+  right: 2.2cqw;
 }
 
-.about-page > .joys-footer {
+.about-page>.joys-footer {
   margin: 4.375cqw 1.388889cqw 0;
   font-family: Georgia, 'Times New Roman', serif;
 }
 
+
+/* ABOUT - 반짝이 효과 */
+.about-page__sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.about-page__title,
+.about-page__panels,
+.about-page>.joys-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.about-page__sparkle {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fffdf5;
+  box-shadow:
+    0 0 8px 3px #fff,
+    0 0 18px 7px #f8c9ef;
+  animation: aboutKitschTwinkle 3.6s ease-in-out infinite;
+}
+
+.about-page__sparkle::before,
+.about-page__sparkle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+.about-page__sparkle::before {
+  width: 3px;
+  height: 42px;
+  background: linear-gradient(to bottom,
+      transparent,
+      #fff,
+      transparent);
+  transform: translate(-50%, -50%);
+}
+
+.about-page__sparkle::after {
+  width: 42px;
+  height: 3px;
+  background: linear-gradient(to right,
+      transparent,
+      #fff,
+      transparent);
+  transform: translate(-50%, -50%);
+}
+
+/* 색상 변화 */
+.about-page__sparkle:nth-child(3n + 1) {
+  box-shadow:
+    0 0 8px 3px #fff,
+    0 0 18px 7px #ffe5a5;
+}
+
+.about-page__sparkle:nth-child(3n + 2) {
+  box-shadow:
+    0 0 8px 3px #fff,
+    0 0 18px 7px #d9c9ff;
+}
+
+/* 왼쪽 5개 */
+.about-page__sparkle:nth-child(1) {
+  left: 3%;
+  top: 17%;
+  animation-delay: 0s;
+}
+
+.about-page__sparkle:nth-child(2) {
+  left: 5%;
+  top: 34%;
+  animation-delay: -1.2s;
+}
+
+.about-page__sparkle:nth-child(3) {
+  left: 2%;
+  top: 52%;
+  animation-delay: -2.3s;
+}
+
+.about-page__sparkle:nth-child(4) {
+  left: 6%;
+  top: 73%;
+  animation-delay: -0.8s;
+}
+
+.about-page__sparkle:nth-child(5) {
+  left: 3%;
+  top: 89%;
+  animation-delay: -2.8s;
+}
+
+/* 오른쪽 5개 */
+.about-page__sparkle:nth-child(6) {
+  right: 4%;
+  top: 20%;
+  animation-delay: -1.6s;
+}
+
+.about-page__sparkle:nth-child(7) {
+  right: 2%;
+  top: 39%;
+  animation-delay: -0.4s;
+}
+
+.about-page__sparkle:nth-child(8) {
+  right: 5%;
+  top: 55%;
+  animation-delay: -2.5s;
+}
+
+.about-page__sparkle:nth-child(9) {
+  right: 3%;
+  top: 76%;
+  animation-delay: -1s;
+}
+
+.about-page__sparkle:nth-child(10) {
+  right: 6%;
+  top: 91%;
+  animation-delay: -3s;
+}
+
+/* 반짝임 애니메이션 */
+@keyframes aboutKitschTwinkle {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.3) rotate(-15deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.2) rotate(0deg);
+  }
+
+  55% {
+    opacity: 0.8;
+    transform: scale(0.85) rotate(12deg);
+  }
+
+  75% {
+    opacity: 0.2;
+    transform: scale(0.4) rotate(20deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page__sparkle {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
 /* ABOUT - Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
+
   /* 카드 2열 유지 + 아래로 이동 */
   .about-page__panels {
     margin-top: 25px;
   }
 
+  .about-page__sparkle:nth-child(4),
+  .about-page__sparkle:nth-child(5),
+  .about-page__sparkle:nth-child(9),
+  .about-page__sparkle:nth-child(10) {
+    display: none;
+  }
+
   /* 푸터 아래로 이동 */
-  .about-page > .joys-footer {
+  .about-page>.joys-footer {
     margin-top: 200px;
   }
 }
+
 
 /* ABOUT - Mobile */
 @media (max-width: 767px) {
@@ -118,6 +295,15 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
+  }
+
+  .about-page__sparkle:nth-child(n + 3):nth-child(-n + 5),
+  .about-page__sparkle:nth-child(n + 8) {
+    display: none;
+  }
+
+  .about-page__sparkle {
+    scale: 0.75;
   }
 
   /* ABOUT 제목 */
@@ -148,7 +334,7 @@
   }
 
   /* Our Story */
-  .about-page__story p + p {
+  .about-page__story p+p {
     margin-top: 22px;
   }
 
@@ -164,37 +350,37 @@
     font-size: 13px;
   }
 
-  .about-page__how > div + div {
+  .about-page__how>div+div {
     margin-top: 22px;
   }
 
   .about-page__cloud {
-    width: 100px;
-    top: 65px;
-    right: -8px;
+    width: 72px;
+    top: 18px;
+    right: 14px;
   }
 
   /* 푸터 아래로 이동 */
-  .about-page > .joys-footer {
-  margin: 40px 12px 0;
-  min-height: 95px;
-  padding: 12px 16px 18px;
-}
+  .about-page>.joys-footer {
+    margin: 40px 12px 0;
+    min-height: 95px;
+    padding: 12px 16px 18px;
+  }
 
   /* ABOUT - 모바일 푸터 글씨 */
-.about-page > .joys-footer .joys-footer__brand p {
-  font-size: 20px;
-}
+  .about-page>.joys-footer .joys-footer__brand p {
+    font-size: 20px;
+  }
 
-.about-page > .joys-footer .joys-footer__brand small {
-  font-size: 10px;
-}
+  .about-page>.joys-footer .joys-footer__brand small {
+    font-size: 10px;
+  }
 
-.about-page > .joys-footer .joys-footer__message p {
-  font-size: 11px;
-}
+  .about-page>.joys-footer .joys-footer__message p {
+    font-size: 11px;
+  }
 
-.about-page > .joys-footer .joys-footer__message small {
-  font-size: 9px;
-}
+  .about-page>.joys-footer .joys-footer__message small {
+    font-size: 9px;
+  }
 }

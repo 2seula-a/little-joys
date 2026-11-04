@@ -32,6 +32,22 @@
   transform: translate(-50%, -50%);
 }
 
+
+.intro-page__logo {
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-12px);
+  }
+}
+
+
 .intro-page__enter {
   position: absolute;
   left: 50%;
@@ -50,13 +66,17 @@
   cursor: pointer;
   transform: translate(-50%, -50%);
   transition:
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .intro-page__enter:hover {
+  background-color: #e2d3ff;
+  color: #5930b4;
   box-shadow: 5px 7px 6px rgb(95 55 85 / 42%);
-  transform: translate(-50%, calc(-50% - 2px));
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .intro-page__enter:active {
@@ -127,4 +147,11 @@
     height: 42px;
     font-size: 21px;
   } 
+}
+/* INTRO - Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-page__logo {
+    animation: none;
+  }
 }
