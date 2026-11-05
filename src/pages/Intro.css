@@ -155,3 +155,83 @@
     animation: none;
   }
 }
+
+/* INTRO - Floating Planet */
+
+.intro-page__planet {
+  position: absolute;
+  top: 22%;
+  left: 68%;
+  z-index: 2;
+  width: 80px;
+  height: auto;
+  pointer-events: none;
+  animation: planetFloat 4s ease-in-out infinite;
+}
+
+@keyframes planetFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+/* Planet - Tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-page__planet {
+    top: 27%;
+    left: 78%;
+    width: 65px;
+  }
+}
+
+/* Planet - Mobile */
+
+@media (max-width: 767px) {
+  .intro-page__planet {
+    top: 29%;
+    left: 82%;
+    width: 45px;
+  }
+}
+
+/* Planet - Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-page__planet {
+    animation: none;
+  }
+}
+
+/* INTRO - Left Planet */
+
+.intro-page__planet--left {
+  top: 66%;
+  left: 15%;
+  width: 65px;
+  filter: hue-rotate(130deg);
+  animation-duration: 5s;
+  animation-delay: -2s;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-page__planet--left {
+    top: 66%;
+    left: 18%;
+    width: 55px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .intro-page__planet--left {
+    top: 66%;
+    left: 15%;
+    width: 38px;
+  }
+}

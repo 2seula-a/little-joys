@@ -109,9 +109,12 @@ function Home() {
               style={{ '--mood-color': color }}
               onClick={() => selectMood(type)}
             >
-              <span className="mood-button__icon" aria-hidden="true">
-                {icon}
-              </span>
+              <img
+                className="mood-button__icon"
+                src={`${BASE}images/home/home-${type}-icon.png`}
+                alt=""
+                aria-hidden="true"
+              />
               {label}
             </button>
           ))}

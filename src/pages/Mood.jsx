@@ -156,7 +156,13 @@ function Mood() {
             aria-pressed={selectedMood?.type === type}
             onClick={() => selectMood(type)}
           >
-            <span className="mood-page__icon" aria-hidden="true">{icon}</span> {label}
+            <img
+              className="mood-page__icon"
+              src={`${import.meta.env.BASE_URL}images/home/home-${type}-icon.png`}
+              alt=""
+              aria-hidden="true"
+            />
+            {label}
           </button>
         ))}
       </div>
@@ -207,7 +213,12 @@ function Mood() {
               <ul className={`mood-page__${selectedType}-list`}>
                 {randomRecommendations.map((recommendation) => (
                   <li key={recommendation}>
-                    <span className="mood-page__icon" aria-hidden="true">{selectedMood.icon}</span>
+                    <img
+                      className="mood-page__icon"
+                      src={`${import.meta.env.BASE_URL}images/home/home-${selectedType}-icon.png`}
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <span>{recommendation}</span>
                   </li>
                 ))}

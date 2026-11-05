@@ -16,6 +16,21 @@ function Intro() {
           alt="LITTLE JOYS"
         />
 
+        <img
+          className="intro-page__planet"
+          src={`${BASE}images/intro/planet.png`}
+          alt=""
+          aria-hidden="true"
+        />
+
+        {/* 왼쪽 행성 추가 */}
+        <img
+          className="intro-page__planet intro-page__planet--left"
+          src={`${BASE}images/intro/planet.png`}
+          alt=""
+          aria-hidden="true"
+        />
+
         <button
           className="intro-page__enter"
           type="button"

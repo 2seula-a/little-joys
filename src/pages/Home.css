@@ -395,24 +395,28 @@
 }
 
 .mood-button__icon {
-  font-size: 42px;
-  line-height: 1;
+  display: block;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
 }
 
-.mood-button--happy .mood-button__icon {
-  color: #ffb660;
+.mood-button:hover .mood-button__icon {
+  animation: moodIconBounce 0.6s ease;
 }
 
-.mood-button--cozy .mood-button__icon {
-  color: #ef7296;
+@keyframes moodIconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-7px) scale(1.15); }
+  65% { transform: translateY(2px) scale(0.95); }
 }
 
-.mood-button--rest .mood-button__icon {
-  color: #7c7be8;
-}
-
-.mood-button--excited .mood-button__icon {
-  color: #eb7095;
+@media (prefers-reduced-motion: reduce) {
+  .mood-button:hover .mood-button__icon {
+    animation: none;
+  }
 }
 
 .todays-joy {
@@ -725,6 +729,11 @@
     padding: 0 8px;
     font-size: 16px;
   }
+
+  .mood-button__icon {
+  width: 38px;
+  height: 38px;
+}
 
   .mood-button__icon {
     font-size: 27px;

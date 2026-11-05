@@ -268,10 +268,15 @@
 
 /* ABOUT - Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
+  .about-page {
+    min-height: calc(100dvh - 105px);
+    display: flex;
+    flex-direction: column;
+  }
 
   /* 카드 2열 유지 + 아래로 이동 */
   .about-page__panels {
-    margin-top: 25px;
+    margin-top: 65px;
   }
 
   .about-page__sparkle:nth-child(4),
@@ -281,10 +286,10 @@
     display: none;
   }
 
-  /* 푸터 아래로 이동 */
-  .about-page>.joys-footer {
-    margin-top: 200px;
-  }
+.about-page > .joys-footer {
+  margin-top: auto;
+
+}
 }
 
 
