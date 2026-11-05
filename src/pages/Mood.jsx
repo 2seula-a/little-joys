@@ -95,6 +95,21 @@ function Mood() {
 
   return (
     <section className={`mood-page${isHappy ? ' mood-page--happy' : isCozy ? ' mood-page--cozy' : isRest ? ' mood-page--rest' : isExcited ? ' mood-page--excited' : ''}`}>
+      <div className="mood-page__floating-sparkles mood-page__floating-sparkles--left" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div className="mood-page__floating-sparkles mood-page__floating-sparkles--right" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <MoodStars stars={upperStars} />
       {isHappy && (
         <>
@@ -127,7 +142,10 @@ function Mood() {
           <img className="mood-page__sticker mood-page__excited-coffee" src={`${import.meta.env.BASE_URL}images/mood/excited-coffee.png`} alt="" aria-hidden="true" />
         </>
       )}
-      <p className="mood-page__description">지금 마음에 어울리는 작은 행복을 발견해요.</p>
+      <p className="mood-page__description">
+        기쁜 날도, 쉬어가고 싶은 날도 괜찮아요.<br />
+        지금의 기분을 선택하고, 마음에 어울리는 작은 행복을 만나보세요.
+      </p>
       <div className="mood-page__options" role="group" aria-label="기분 선택">
         {moods.map(({ type, icon, label, color }) => (
           <button
@@ -138,7 +156,13 @@ function Mood() {
             aria-pressed={selectedMood?.type === type}
             onClick={() => selectMood(type)}
           >
-            <span className="mood-page__icon" aria-hidden="true">{icon}</span> {label}
+            <img
+              className="mood-page__icon"
+              src={`${import.meta.env.BASE_URL}images/home/home-${type}-icon.png`}
+              alt=""
+              aria-hidden="true"
+            />
+            {label}
           </button>
         ))}
       </div>
@@ -189,7 +213,12 @@ function Mood() {
               <ul className={`mood-page__${selectedType}-list`}>
                 {randomRecommendations.map((recommendation) => (
                   <li key={recommendation}>
-                    <span className="mood-page__icon" aria-hidden="true">{selectedMood.icon}</span>
+                    <img
+                      className="mood-page__icon"
+                      src={`${import.meta.env.BASE_URL}images/home/home-${selectedType}-icon.png`}
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <span>{recommendation}</span>
                   </li>
                 ))}

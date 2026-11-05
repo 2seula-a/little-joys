@@ -4,6 +4,11 @@ import './About.css'
 function About() {
   return (
     <div className="about-page">
+      <div className="about-page__sparkles" aria-hidden="true">
+        {Array.from({ length: 10 }, (_, index) => (
+          <span key={index} className="about-page__sparkle" />
+        ))}
+      </div>
       <h1 className="about-page__title">
         <span className="about-page__accessible">About LITTLE JOYS</span>
         <svg viewBox="0 0 1440 237" aria-hidden="true">
@@ -33,9 +38,31 @@ function About() {
         </section>
         <section className="about-page__panel about-page__how" aria-labelledby="about-how">
           <h2 id="about-how">How It Works</h2>
-          <div><h3>오늘의 작은 행복을 발견해요</h3><p>오늘의 기분에 어울리는 작은 행복을 발견해요.</p></div>
-          <div><h3>마음에 드는 행복을 담아봐요.</h3><p>마음에 드는 행복을 스크랩하고, 나만의 공간에 차곡차곡 모아보세요.</p></div>
-          <div><h3>언제든 다시 꺼내보며 미소지어요.</h3><p>모아둔 순간들이 지금도, 앞으로도 힘이 되어줄 거예요.</p></div>
+
+          <div>
+            <h3>오늘의 기분을 선택해요</h3>
+            <p>
+              MOOD에서 지금의 기분을 선택하고,
+              나에게 어울리는 작은 행복을 발견해 보세요.
+            </p>
+          </div>
+
+          <div>
+            <h3>마음에 드는 행복을 담아봐요</h3>
+            <p>
+              TODAY에서 새로운 행복을 추천받고,
+              마음에 드는 순간은 하트를 눌러 스크랩해 보세요.
+            </p>
+          </div>
+
+          <div>
+            <h3>모아둔 행복을 다시 꺼내봐요</h3>
+            <p>
+              SCRAPBOOK에서 저장한 순간들을 언제든 다시 확인하고,
+              나만의 작은 행복을 돌아보세요.
+            </p>
+          </div>
+
           <svg className="about-page__cloud" viewBox="0 0 220 145" aria-hidden="true">
             <path d="M52 119 C-8 129 -6 42 50 39 C55 0 108 -3 124 29 C146 4 183 19 183 48 C238 58 219 131 170 124 C149 146 123 133 111 124 C89 147 61 139 52 119Z" fill="#b2dce0" stroke="white" strokeWidth="9" />
             <g fill="none" stroke="#29233e" strokeWidth="1.5" strokeLinecap="round">

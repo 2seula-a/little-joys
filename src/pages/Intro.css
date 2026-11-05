@@ -1,10 +1,11 @@
+
 .intro-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   min-width: 1024px;
+  height: 100vh;
   min-height: 720px;
   overflow: hidden;
   background-color: #ffc4d3;
@@ -15,16 +16,42 @@
   flex: none;
   width: max(100vw, calc(100vh * 744 / 529));
   aspect-ratio: 744 / 529;
-  background-image: url('/images/intro-background.png');
+  background-image: url('/images/intro/intro-bg.png');
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
+.intro-page__logo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  display: block;
+  width: 40%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+
+.intro-page__logo {
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-12px);
+  }
+}
+
+
 .intro-page__enter {
   position: absolute;
   left: 50%;
-  top: 74%;
+  top: 70%;
   width: 222px;
   height: 60px;
   padding: 0;
@@ -39,13 +66,17 @@
   cursor: pointer;
   transform: translate(-50%, -50%);
   transition:
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .intro-page__enter:hover {
+  background-color: #e2d3ff;
+  color: #5930b4;
   box-shadow: 5px 7px 6px rgb(95 55 85 / 42%);
-  transform: translate(-50%, calc(-50% - 2px));
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .intro-page__enter:active {
@@ -56,4 +87,151 @@
 .intro-page__enter:focus-visible {
   outline: 3px solid #7040d8;
   outline-offset: 5px;
+}
+
+
+/* INTRO - Tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-page {
+    min-width: 0;
+    min-height: 0;
+    height: 100dvh;
+  }
+
+  .intro-page__artboard {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    background-size: cover;
+  }
+
+  .intro-page__logo {
+    width: min(65%, 520px);
+  }
+
+  .intro-page__enter {
+    top: 76%;
+    width: 180px;
+    height: 52px;
+    font-size: 28px;
+  }
+}
+
+/* INTRO - Mobile */
+
+@media (max-width: 767px) {
+  .intro-page {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100dvh;
+  }
+
+  .intro-page__artboard {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .intro-page__logo {
+    top: 45%;
+    width: min(88%, 360px);
+  }
+
+  .intro-page__enter {
+    top: 69%;
+    width: 130px;
+    height: 42px;
+    font-size: 21px;
+  } 
+}
+/* INTRO - Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-page__logo {
+    animation: none;
+  }
+}
+
+/* INTRO - Floating Planet */
+
+.intro-page__planet {
+  position: absolute;
+  top: 22%;
+  left: 68%;
+  z-index: 2;
+  width: 80px;
+  height: auto;
+  pointer-events: none;
+  animation: planetFloat 4s ease-in-out infinite;
+}
+
+@keyframes planetFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+/* Planet - Tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-page__planet {
+    top: 27%;
+    left: 78%;
+    width: 65px;
+  }
+}
+
+/* Planet - Mobile */
+
+@media (max-width: 767px) {
+  .intro-page__planet {
+    top: 29%;
+    left: 82%;
+    width: 45px;
+  }
+}
+
+/* Planet - Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-page__planet {
+    animation: none;
+  }
+}
+
+/* INTRO - Left Planet */
+
+.intro-page__planet--left {
+  top: 66%;
+  left: 15%;
+  width: 65px;
+  filter: hue-rotate(130deg);
+  animation-duration: 5s;
+  animation-delay: -2s;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-page__planet--left {
+    top: 66%;
+    left: 18%;
+    width: 55px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .intro-page__planet--left {
+    top: 66%;
+    left: 15%;
+    width: 38px;
+  }
 }

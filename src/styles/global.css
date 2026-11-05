@@ -10,7 +10,7 @@ body,
 
 body {
   margin: 0;
-  min-width: 1180px;
+  min-width: 0;
   color: #4a3f4a;
   background: #ffffff;
   font-family: Arial, sans-serif;
@@ -106,4 +106,110 @@ h1 {
 
 .site-footer {
   margin-top: 80px;
+}
+
+
+/* Header - Responsive */
+
+.site-header__menu-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 0 30px;
+  }
+
+  .site-header__brand {
+    font-size: 30px;
+  }
+
+  .site-header__logo-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .site-header__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .site-header__menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background: #765b93;
+  }
+
+  .site-header__nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 240px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f9dce4;
+    box-shadow: 0 8px 20px rgb(110 75 100 / 15%);
+  }
+
+  .site-header__nav.is-open {
+    display: block;
+  }
+
+  .site-header__navigation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .site-header__link {
+    display: block;
+    font-size: 18px;
+  }
+
+  .site-main {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-layout {
+    padding-top: 12px;
+  }
+
+  .site-header {
+    width: calc(100% - 24px);
+    height: 66px;
+    margin: 0 12px;
+    padding: 0 16px;
+    border-radius: 16px;
+  }
+
+  .site-header__brand {
+    font-size: 23px;
+    letter-spacing: -1px;
+  }
+
+  .site-header__logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .site-header__nav {
+    width: min(240px, calc(100vw - 24px));
+  }
+
+  .site-main {
+    padding: 20px 16px;
+  }
 }
